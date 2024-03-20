@@ -1,0 +1,46 @@
+/* General */
+:root {
+  /* Colors */
+  --primary-color: #009444; /* Green */
+}
+
+/* Font */
+body {
+  margin: 0;
+  padding: 0;
+  color: #484848;
+  font-size: 14px;
+  font-family: var(--body-font);
+}
+
+.container {
+  max-width: 1000px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul li:hover {
+  background-color: #484848;
+  padding: 1rem;
+}
+ul li:hover a {
+  color: white;
+}
+/* Omar */
+.btn {
+  padding: 0.5rem;
+  font-size: 15px;
+  font-weight: 700;
+}
+h1 {
+  display: flex;
+  word-spacing: var(--spacing-sm);
+  justify-content: center;
+  font-family: var(--heading-font);
+
+  font-size: 50px;
+  opacity: 75%;
+}
+/* Irom */
