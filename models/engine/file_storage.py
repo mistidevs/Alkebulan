@@ -6,9 +6,10 @@ Contains the FileStorage class
 import json
 import models
 from models.base_model import BaseModel
+from models.admin import Admin
 from hashlib import md5
 
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "Admin": Admin}
 
 
 class FileStorage:

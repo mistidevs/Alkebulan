@@ -5,9 +5,10 @@ import cmd
 from datetime import datetime
 import models
 from models.base_model import BaseModel
+from models.admin import Admin
 import shlex  # for splitting the line along spaces except in double quotes
 
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "Admin": Admin}
 
 
 class HBNBCommand(cmd.Cmd):

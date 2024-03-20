@@ -5,12 +5,13 @@ Contains the class DBStorage
 
 import models
 from models.base_model import BaseModel, Base
+from models.admin import Admin
 from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {}
+classes = {"Admin": Admin}
 
 
 class DBStorage:
