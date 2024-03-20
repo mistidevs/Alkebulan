@@ -1,0 +1,102 @@
+/* Omar Douiba: douibaomar@gmail.com */
+/* HEADER */
+/* NAVBAR */
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-letter {
+  color: green;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.logo {
+  font-size: 30px;
+  margin-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.nav-menu {
+  display: flex;
+  line-height: 1.75;
+  list-style: none;
+}
+
+.nav-menu li {
+  padding: 1rem;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+}
+
+/* BANNER */
+.ban {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../images/banner.jpg") center/cover no-repeat fixed;
+  height: calc(80vh - 70px);
+  text-align: center;
+}
+.ban h1 {
+  font-family: var(--heading-font);
+  opacity: 100%;
+  color: white;
+}
+.ban p {
+  font-family: var(--heading-font);
+  opacity: 100%;
+  color: white;
+}
+.ban p,
+.ban h1 {
+  align-items: center;
+}
+.re {
+  /* background-color: aquamarine; */
+  height: 80vh;
+}
+
+.re p,
+.gr p,
+.yl p {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.gr {
+  background-color: green;
+  height: 90vh;
+}
+
+.yl {
+  /* background-color: blueviolet; */
+  height: 80vh;
+}
+
+/* Irom */
+/* .header {
+  text-align: center; 
+}
+
+.ban {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  height: 300px;
+}
+
+.ban h1,
+.ban p {
+  margin: 0;
+} */
