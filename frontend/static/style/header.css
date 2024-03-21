@@ -66,25 +66,5 @@
 .ban h1 {
   align-items: center;
 }
-.re {
-  /* background-color: aquamarine; */
-  height: 80vh;
-}
-
-.re p,
-.gr p,
-.yl p {
-  margin: 0 auto;
-  max-width: 400px;
-}
-.gr {
-  background-color: green;
-  height: 90vh;
-}
-
-.yl {
-  /* background-color: blueviolet; */
-  height: 80vh;
-}
 
 /* Irom */
