@@ -1,5 +1,6 @@
 /* Omar Douiba: douibaomar@gmail.com */
 /* HEADER */
+
 /* NAVBAR */
 /* Navbar Styling */
 .navbar {
@@ -10,7 +11,7 @@
 
 .logo-letter {
   color: green;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -26,17 +27,26 @@
   list-style: none;
 }
 
-.nav-menu li {
-  padding: 1rem;
-}
+/* .nav-menu li {
+  padding: 0.rem;
+} */
 
 .nav-menu li a {
-  text-decoration: none;
-  text-transform: capitalize;
-  color: var(--primary-color);
+  color: var(--clr-grey-1);
+  font-family: sans-serif;
   font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 0.75rem;
 }
 
+.nav-menu li:hover a {
+  border-bottom: 2px solid var(--clr-primary);
+  color: var(--clr-primary);
+  margin-bottom: 0;
+  padding-bottom: 0.5rem;
+  transition: var(--transition);
+}
 /* BANNER */
 .ban {
   background: linear-gradient(
@@ -52,19 +62,33 @@
   align-items: center;
 }
 .ban h1 {
-  font-family: var(--heading-font);
   opacity: 100%;
   color: white;
 }
 
 .ban p {
-  font-family: var(--heading-font);
   opacity: 100%;
   color: white;
 }
 .ban p,
 .ban h1 {
   align-items: center;
+}
+
+/* About Us */
+.about-img-div {
+  width: 400px;
+  height: 300px;
+}
+.about-img {
+  width: 400px;
+  border: 3px solid var(--clr-grey-5);
+  overflow: hidden;
+}
+.about-img-div:hover {
+  opacity: 0.5;
+  transition: var(--transition);
+  transform: scale(1.2);
 }
 
 /* Irom */
