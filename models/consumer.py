@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the Administrators class"""
+"""This is the Consumers class"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
@@ -9,24 +9,26 @@ from hashlib import md5
 import shlex
 
 
-class Admin(BaseModel, Base):
+class Consumer(BaseModel, Base):
   """
-  Admin class that allows management of the system
+  Consumer class for those purchasing farm produce
   """
 
   if models.storage_t == 'db':
-    __tablename__ = 'admin'
+    __tablename__ = 'consumer'
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
+    phone_number = Column(String(128), nullable=False)
   else:
       user_name = ""
       full_name = ""
       email = ""
+      phone_number = ""
 
   def __init__(self, *args, **kwargs):
-      """initializes an administrator"""
+      """initializes a consumer"""
       super().__init__(*args, **kwargs)
 
   def __setattr__(self, name, value):
