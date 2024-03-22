@@ -19,7 +19,7 @@ Variables
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
   --ff-primary: "Catamaran", sans-serif;
-  --ff-secondary: "Grand Hotel", cursive;
+  --ff-secondary: ;
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
   --radius: 0.5rem;
@@ -106,5 +106,12 @@ h4 {
 .btn:hover {
   background: var(--clr-primary-grey);
   color: var(--clr-primary);
+}
+
+.container {
+  padding: 4rem 0;
+  width: 85vw;
+  margin: 0 auto;
+  max-width: 1170px;
 }
 /* Irom */
