@@ -15,7 +15,7 @@ class Consumer(BaseModel, Base):
   """
 
   if models.storage_t == 'db':
-    __tablename__ = 'consumer'
+    __tablename__ = 'consumers'
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)

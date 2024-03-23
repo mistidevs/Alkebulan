@@ -15,7 +15,7 @@ class Farmer(BaseModel, Base):
   """
 
   if models.storage_t == 'db':
-    __tablename__ = 'farmer'
+    __tablename__ = 'farmers'
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)
@@ -23,7 +23,7 @@ class Farmer(BaseModel, Base):
     phone_number = Column(String(128), nullable=False)
     location = Column(String(128), nullable=False)
     latitude = Column(Float(precision=8), nullable=False)
-    longitude = Column(Float(precision=8), nullable=False)
+    longitude = Column(Float(precision=8), nullable=False) 
   else:
       user_name = ""
       full_name = ""

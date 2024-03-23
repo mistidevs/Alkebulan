@@ -14,7 +14,7 @@ class Product(BaseModel, Base):
   """
 
   if models.storage_t == 'db':
-    __tablename__ = 'product'
+    __tablename__ = 'products'
     name = Column(String(128), nullable=False)
     recommended_price = Column(Integer, nullable=False)
     max_price = Column(Integer, nullable=False)

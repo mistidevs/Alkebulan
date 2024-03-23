@@ -7,9 +7,16 @@ import json
 import models
 from models.base_model import BaseModel
 from models.admin import Admin
+from models.consumer import Consumer
+from models.farmer_product import FarmerProduct
+from models.farmer import Farmer
+from models.order import Order
+from models.product import Product
 from hashlib import md5
 
-classes = {"BaseModel": BaseModel, "Admin": Admin}
+classes = {"BaseModel": BaseModel, "Admin": Admin, "Consumer": Consumer, 
+           "FarmerProduct": FarmerProduct, "Farmer": Farmer,
+           "Order": Order, "Product": Product}
 
 
 class FileStorage:

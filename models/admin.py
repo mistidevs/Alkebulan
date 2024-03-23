@@ -15,7 +15,7 @@ class Admin(BaseModel, Base):
   """
 
   if models.storage_t == 'db':
-    __tablename__ = 'admin'
+    __tablename__ = 'admins'
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)

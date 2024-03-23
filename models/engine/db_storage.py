@@ -6,12 +6,19 @@ Contains the class DBStorage
 import models
 from models.base_model import BaseModel, Base
 from models.admin import Admin
+from models.consumer import Consumer
+from models.farmer_product import FarmerProduct
+from models.farmer import Farmer
+from models.order import Order
+from models.product import Product
 from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {"Admin": Admin}
+classes = {"Admin": Admin, "Consumer": Consumer, 
+           "FarmerProduct": FarmerProduct, "Farmer": Farmer,
+           "Order": Order, "Product": Product}
 
 
 class DBStorage:
