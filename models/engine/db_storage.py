@@ -9,7 +9,7 @@ from models.admin import Admin
 from models.consumer import Consumer
 from models.farmer_product import FarmerProduct
 from models.farmer import Farmer
-#from models.order import Order
+from models.order import Order
 from models.product import Product
 from os import getenv
 import sqlalchemy
@@ -18,7 +18,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 classes = {"Admin": Admin, "Consumer": Consumer, 
            "FarmerProduct": FarmerProduct, "Farmer": Farmer,
-           "Product": Product}
+           "Product": Product, "Order": Order}
 
 
 class DBStorage:
