@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """ holds class FarmerProduct"""
 import models
-import datetime
+from datetime import datetime
 import random
 from models.base_model import BaseModel, Base
 from os import getenv
