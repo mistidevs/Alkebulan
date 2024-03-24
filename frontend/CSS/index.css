@@ -98,9 +98,10 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 120px;
+  padding: 20px 0 ;
   position: relative;
   background-color: darkgreen;
+
 }
 
 .div-footer-widget .div-container {
@@ -108,9 +109,10 @@ img {
   flex-direction: column;
   max-width: 1200px;
   width: 1200px;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   flex: 0 0 auto;
+  margin-bottom: 5px;
 }
 
 .div-footer-widget .div-row {
@@ -143,7 +145,7 @@ img {
   display: flex;
   flex-direction: column;
   max-width: 300px;
-  height: 377.19px;
+  height: 300.19px;
   align-items: flex-start;
   position: relative;
   flex: 1;
@@ -191,7 +193,7 @@ img {
   margin-right: -6px;
   font-family: "Gotham Rounded-Bold", Helvetica;
   font-weight: 700;
-  color: var(--bdevsnetwplandcoabout-us1440x810defaultnero);
+  color:#fafafa
   font-size: 24px;
   letter-spacing: 0;
   line-height: 31.2px;
@@ -231,7 +233,6 @@ img {
   margin-top: -1px;
   font-family: "Montserrat-Regular", Helvetica;
   font-weight: 400;
-  color: var(--bdevsnetwplandcoabout-us1440x810defaultnero);
   font-size: 15px;
   letter-spacing: 0;
   line-height: 15px;
@@ -286,14 +287,13 @@ img {
 .div-footer-widget .input {
   display: flex;
   flex-direction: column;
-  max-width: 270px;
-  height: 60px;
+  max-width: 300px;
   align-items: flex-start;
-  padding: 21px 30px 20px;
+  padding: 18px 20px 17px;
   position: relative;
   align-self: stretch;
-  width: 100%;
-  background-color: #a6ce39;
+  width: 75%;
+  background-color: #bffa0d;
 }
 
 .div-footer-widget .div-placeholder {
@@ -303,7 +303,7 @@ img {
   padding: 0px 96px 0px 0px;
   position: relative;
   align-self: stretch;
-  width: 100%;
+  width: 30%;
   flex: 0 0 auto;
 }
 
@@ -314,7 +314,6 @@ img {
   margin-right: -2px;
   font-family: "Gotham Rounded-Book", Helvetica;
   font-weight: 400;
-  color: var(--bdevsnetwplandcoabout-us1440x810defaultnero);
   font-size: 14px;
   letter-spacing: 0;
   line-height: normal;
@@ -334,8 +333,7 @@ img {
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: "Font Awesome 5 Free-Regular", Helvetica;
-  color: var(--bdevsnetwplandcoabout-us1440x810defaultnero);
+  font-family: sans-serif;
   font-size: 20px;
   line-height: 20px;
   white-space: nowrap;
