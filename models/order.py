@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import models
+import random
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
