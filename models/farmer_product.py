@@ -13,7 +13,7 @@ class FarmerProduct(BaseModel, Base):
         __tablename__ = 'farmer_products'
         farmer_id = Column(String(60), ForeignKey('farmers.id'), nullable=False)
         product_id = Column(String(60), ForeignKey('products.id'), nullable=False)
-        price = Column(Integer, primary_key=True, nullable=False)
+        price = Column(Integer, nullable=False)
     else:
         farmer_id = ""
         product_id = ""
