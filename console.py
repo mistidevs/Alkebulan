@@ -15,7 +15,7 @@ import shlex  # for splitting the line along spaces except in double quotes
 
 classes = {"BaseModel": BaseModel, "Admin": Admin, "Consumer": Consumer, 
            "FarmerProduct": FarmerProduct, "Farmer": Farmer,
-           "Order": Order, "Product": Product}
+           "Product": Product, "Order": Order}
 
 
 class HBNBCommand(cmd.Cmd):

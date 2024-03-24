@@ -18,7 +18,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 classes = {"Admin": Admin, "Consumer": Consumer, 
            "FarmerProduct": FarmerProduct, "Farmer": Farmer,
-           "Order": Order, "Product": Product}
+           "Product": Product, "Order": Order}
 
 
 class DBStorage:
