@@ -1,6 +1,6 @@
 /* Omar */
 footer{
-    background-color: rgb(13, 110, 13);
+    background-color:var(--clr-primary);
     list-style: none;
 }
 
