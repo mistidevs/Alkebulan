@@ -1,19 +1,4 @@
 /* Omar */
-/*section {
-  display: inline-block; /* Make sections display side-by-side */
- /* width: 45%; /* Set width for each section */
-  /*margin: 10px;  /* Add some margin between sections */
-  /*padding: 20px; /* Add padding inside sections */
-  /*border: 1px solid #ddd; /* Add a thin border */
-/*}
-
-/* Style the headings */
-  /*h1 {
-  /*text-align: center; /* Center align headings */
-/*}
-
-/* For the first section with class "gr" */
-/* Center the container */
 .gr {
   display: flex;
   justify-content: center;
