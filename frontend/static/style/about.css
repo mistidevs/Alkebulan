@@ -1,0 +1,15 @@
+/* About Us */
+.about-img-div {
+  width: 400px;
+  height: 300px;
+}
+.about-img {
+  width: 400px;
+  border: 3px solid var(--clr-grey-5);
+  overflow: hidden;
+}
+.about-img-div:hover {
+  opacity: 0.5;
+  transition: var(--transition);
+  transform: scale(1.2);
+}
