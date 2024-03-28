@@ -22,7 +22,7 @@ def get_admins():
 
 @app_views.route('/admins/<admin_id>', methods=['GET'], strict_slashes=False)
 def get_admin(admin_id):
-    """ Retrieves an admin """
+    """ Retrieves an Admin """
     admin = storage.get(Admin, admin_id)
     if not admin:
         abort(404)
