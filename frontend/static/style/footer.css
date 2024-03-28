@@ -2,6 +2,7 @@
 max-width: 1178px;
 background-color:#51cf66;
 width: 100%;
+text-align: center;
 margin: auto;
 }
 
@@ -50,10 +51,9 @@ margin-bottom: 10px;
 font-size: 16px;
 text-transform: capitalize;
 font-weight:300;
-colour:#bbbbbb;
 text-decoration: none;
 font-weight: 300;
-color: #bbbbbb;
+color: #0c6dce;
 display:block;
 transition: all 0.3s ease;
 }
@@ -67,7 +67,7 @@ padding-left: 8px;
 display: inline-block;
 height: 40px;
 width: 40px;
-background-colour:rgba(255,255,255,0.2);
+background-colour:rgba(105, 167, 218, 0.2);
 margin:0 10px 10px 0;
 text-align: center;
 line-height: 40px;

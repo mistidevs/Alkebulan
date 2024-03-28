@@ -45,7 +45,7 @@
 .gr .container p {
   font-size: 16px;
   line-height: 1.6;
-  color: #666;
+  color: #4b5563;
 }
 
 /* Style for the dropdown menu */
@@ -88,6 +88,21 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.cta-button {
+  display: inline-block;
+  background-color:#4caf50;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none; 
+  border-radius: 5px; 
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color:#66a80f;
+}
+
 
 
 
