@@ -66,7 +66,8 @@ def post_consumer():
         abort(400, "Missing user name")
     if 'full_name' not in request.get_json():
         abort(400, "Missing full name")
-    if 'phone_number' not in request.json():
+    if 'phone_number' not in request.get_json():
+        
         abort(400, "Missing phone number")
 
     data = request.get_json()
