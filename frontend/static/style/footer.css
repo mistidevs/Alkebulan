@@ -1,79 +1,100 @@
-<<<<<<< HEAD
-footer {
-  background-color: rgb(13, 110, 13);
-  list-style: none;
-=======
-/* Omar */
-footer{
-    background-color:var(--clr-primary);
-    list-style: none;
->>>>>>> 464ee70 (sytle the product section of the index)
+.container{
+max-width: 1178px;
+background-color:#51cf66;
+width: 100%;
+margin: auto;
 }
 
-.footercontainer {
-  width: 100%;
-  padding: 70px 30px 20px;
+.row{
+display: flex;
+flex-wrap:wrap ;
+}
+ul{
+list-style: none;
+}
+.footer{
+background-color:#51cf66; 
+padding: 70px 0;
+}
+.footer-col{
+width: 25%;
+padding: 0 15px;
 }
 
-.socialicons {
-  display: flex;
-  justify-content: center;
+.footer.col h4{
+font-size: 18px;
+color: #ffffff;
+text-transform: capitalize;
+margin-bottom: 30px;
+font-weight: 500;
+position: relative;
+background-color: greenyellow;
 }
 
-.socialicons a {
-  text-align: none;
-  padding: 10px;
-  background-color: rgb(207, 221, 76);
-  margin: 10px;
-  border-radius: 50%;
+.footer-col h4::before{
+content:'';
+position: absolute;
+left:0;
+bottom: -10px;
+background-color:#0b40ee ;
+height: 2px;
+box-sizing: border-box;
+width: 50px;
 }
 
-.socialicons a i {
-  font-size: 2em;
-  color: black;
-  opacity: 0.9;
+.footer-col ul li:not(:last-child){
+margin-bottom: 10px;
 }
 
-.socialicons a:hover {
-  background-color: #6055c2;
-  transition: 0.5s;
+.footer-col ul li a{
+font-size: 16px;
+text-transform: capitalize;
+font-weight:300;
+color:#bbbbbb;
+text-decoration: none;
+font-weight: 300;
+color: #bbbbbb;
+display:block;
+transition: all 0.3s ease;
 }
 
-.socialicons a:hover i {
-  color: white;
-  transition: 0.5s;
+.footer-col ul li a:hover{
+color:#ffffff;
+padding-left: 8px;
 }
 
-.footerNav {
-  margin: 30px 0;
+.footer-col .social-links a{
+display: inline-block;
+height: 40px;
+width: 40px;
+background-color:rgba(255,255,255,0.2);
+margin:0 10px 10px 0;
+text-align: center;
+line-height: 40px;
+border-radius: 50%;
+color:#ffffff;
+transition: all 0.5s ease;
 }
 
-.footerNav ul {
-  display: flex;
-  list-style-type: none;
-  justify-content: center;
-  color: rgb(255, 255, 255);
+.footer-col .social-links a:hover{
+color:#24262b;
+background-color: #ffffff;
 }
 
-.footerNav ul li a {
-  color: rgb(243, 243, 89);
-  margin: 20px;
-  text-decoration: none;
-  font-size: 1.3em;
-  transition: 0.5s;
+/*media query*/
+@media(max-width:767px){
+.footer-col {
+    width:50%;
+    margin-bottom: 30px;
+
+}
 }
 
-.footerNav ul li a:hover {
-  opacity: 1;
+media(max-width:574px){
+.footer-col {
+    width:100%;
+
+}
 }
 
-.footerBotton {
-  background-color: rgb(0, 0, 0);
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-}
 
-.footerBotton p {
-  color: #fafafa;
-}
