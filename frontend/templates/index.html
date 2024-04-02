@@ -34,9 +34,9 @@
         </div>
 
         <ul class="nav-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="../templates/index.html">Home</a></li>
+          <li><a href="#products-scroll">Products</a></li>
+          <li><a href="#about-scroll">About Us</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
         <div class="search">
@@ -68,122 +68,232 @@
         </div>
       </nav>
       <div class="ban">
-        <h1>Welcome to Alkabulan</h1>
+        <h1>Welcome to Alkabulan Store</h1>
         <p>Buy your food today with a click</p>
-        <button class="btn">Learn More</button>
       </div>
     </header>
 
-    <section class="about-section">
-      <article class="container">
-        <h1 class="about-title">About US</h1>
-        <div class="about-img">
+    <!-- Start About section -->
+    <section>
+      <h1 id="about-scroll" class="about-title">About <span class="about-span">US</span></h1>
+      <article class="container about-section">
+        <article class="about-img">
           <img src="../static/images/banner.jpg" alt="" class="about-img-div" />
-        </div>
+        </article>
+        <article class="about-text">
+          <h1>Grown <span class="about-span">by Nature</span></h1>
+          <div class="bottom-line"></div>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero
+            est dolore, explicabo assumenda, quia asperiores eum fugiat rem
+            provident accusantium. Ad nostrum nihil, sequi iste impedit fugiat
+            reprehenderit nesciunt.
+          </p>
+        </article>
+      </article>
+    </section>
+    <!-- End About section -->
+    <!-- Start Products section -->
+    <section id="products-scroll" class="products-section">
+      <h1 class="about-title">Prod<span class="about-span">ucts</span></h1>
+      <article class="container products">
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
 
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero est
-          dolore, explicabo assumenda, quia asperiores eum fugiat rem provident
-          accusantium. Ad nostrum nihil, sequi iste impedit fugiat reprehenderit
-          nesciunt.
-        </p>
-      </article>
-    </section>
-    <!-- Irom -->
-    <section>
-      <article class="container">
-        <section class="category">
-          <h2>Product</h2>
-          <ul class="dropdown-menu">
-            <li class="dropdown">
-              <a href="#" class="dropdown-btn">Crops</a>
-              <ul class="dropdown-content">
-                <li><a href="#">Grains</a></li>
-                <li><a href="#">Fruits</a></li>
-                <li><a href="#">Vegetables</a></li>
-                <li><a href="#">Legumes</a></li>
-                <li><a href="#">Tubers and Root Vegetables</a></li>
-                <li><a href="#">Oilseeds</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-btn">Livestock</a>
-              <ul class="dropdown-content">
-                <li><a href="#">Dairy Products</a></li>
-                <li><a href="#">Meat Products</a></li>
-                <li><a href="#">Eggs</a></li>
-                <li><a href="#">Wool and Fiber</a></li>
-              </ul>
-            </li>
-            <!-- Add more categories as needed -->
-          </ul>
-        </section>
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">20$</span></h2>
+            <!-- <button href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</button> -->
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
 
-        <section class="cta" id="cta-section">
-          <p>Ready to explore our farm-fresh products?</p>
-          <a href="shop.html" class="cta-button">Shop Now</a>
-        </section>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <button class="btn cart-btn show-details-btn">More Details</button>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
+  
+        <a href="../templates/more-products.html" class="btn more-btn">More <span>&rarr;</span></a>
       </article>
     </section>
+    <!-- End Products section -->
+    <!-- pop details-->
+    <!-- <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Bike-2-41</h2>
+        <p>Available at Tetouan Park</p>
+        <ul>
+          <li><strong>Minimal driver age:</strong> 15</li>
+          <li><strong>Gearbox:</strong> 2</li>
+          <li><strong>Mileage:</strong> Unlimited</li>
+          <li><strong>Price from:</strong> $2/hour</li>
+          <li><strong>Max passengers:</strong> 2</li>
+          <li><strong>Location:</strong> 4569 Orn Ferry</li>
+        </ul>
+        <h3>Additional Information</h3>
+        <ul>
+          <li>Marin Alloy</li>
+          <li>SunRace 11-Speed Cassette</li>
+          <li>Safety Helmet</li>
+          <li>Tubeless Compatible</li>
+        </ul>
+        <button class="book-now">Book now</button>
+      </div>
+    </div> -->
+    <!-- End pop details-->
+    <!-- Start Best selling section -->
     <section>
-      <article class="container">
-        <h1>Best Selling</h1>
-        <div class="product-images">
-          <img src="../static/images/cassava.jpeg" alt="Product 1" />
-          <img src="../static/images/vegetable2.jpeg" alt="Product 2" />
-          <img src="../static/images/yam.jpeg" alt="Product 3" />
-          <img src="../static/images/plaintain.jpeg" alt="Product 4" />
-        </div>
-        <p>
-          Discover our selection of best-selling farm products! From the hearty
-          flavor of fresh cassava to the crispness of locally grown vegetables,
-          each item is carefully curated to bring you the essence of farm-fresh
-          goodness. Indulge in the rich taste of yams or savor the versatility
-          of plantains – these products are not just ingredients; they're the
-          heart and soul of our farm-to-table experience. Join us in celebrating
-          the bounty of nature with every bite!
-        </p>
+      <h1 class="about-title">Best <span class="about-span">Selling</span></h1>
+      <article class="container products">
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <div class="product-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          </div>
+
+          <div class="cart-bottom">
+            <h2 class="price"><span class="about-span">200$</span></h2>
+            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
+          </div>
+        </article>
       </article>
     </section>
-    <!-- Omar -->
-    <!-- <section class="yl">
-      <article class="container">
-        <h1>Reviews</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero est
-          dolore, explicabo assumenda, quia asperiores eum fugiat rem provident
-          accusantium. Ad nostrum nihil, sequi iste impedit fugiat reprehenderit
-          nesciunt.
-        </p>
-      </article>
-    </section> -->
-    <!-- Irom -->
-    <footer>
-      <div class="footercontainer">
-        <div class="socialicons">
-          <a href="https://www.facebook.com/yourprofile"
-            ><i class="fab fa-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/yourprofile"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="https://twitter.com/yourprofile"
-            ><i class="fab fa-twitter"></i
-          ></a>
-        </div>
-        <div class="footerNav">
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Product</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footerBotton">
-        <p>Copyright &copy;2024 ALKABULAN.</p>
-      </div>
+    <!-- Start Products section -->
+    <!-- Start footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Alkabulan. All Rights Reserved. <h5>Made by Omar & Irom & Misati</h5></p>
     </footer>
+    <!-- End footer -->
     <script src="../static/scripts/javascript.js"></script>
   </body>
 </html>

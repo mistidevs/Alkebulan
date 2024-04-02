@@ -1,4 +1,7 @@
 /* About Us */
+.about-img {
+  margin-left: 4rem;
+}
 .about-img-div {
   width: 400px;
   height: 300px;
@@ -12,4 +15,36 @@
   opacity: 0.5;
   transition: var(--transition);
   transform: scale(1.2);
+}
+
+.about-section {
+  display: flex;
+}
+
+article .about-text {
+  max-width: 500px;
+  margin-left: 4rem;
+}
+
+.about-title {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 0;
+}
+
+.about-text h1 {
+  font-size: 3rem;
+}
+.about-span {
+  color: var(--clr-primary);
+}
+
+.bottom-line {
+  width: 200px;
+  height: 5px;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, orange 60%, cyan);
+  transition: var(--transition);
 }
