@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 footer {
   background-color: rgb(13, 110, 13);
   list-style: none;
+=======
+/* Omar */
+footer{
+    background-color:var(--clr-primary);
+    list-style: none;
+>>>>>>> 464ee70 (sytle the product section of the index)
 }
 
 .footercontainer {
