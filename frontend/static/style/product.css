@@ -1,165 +1,93 @@
-/* Omar */
-/*section {
-  display: inline-block; /* Make sections display side-by-side */
- /* width: 45%; /* Set width for each section */
-  /*margin: 10px;  /* Add some margin between sections */
-  /*padding: 20px; /* Add padding inside sections */
-  /*border: 1px solid #ddd; /* Add a thin border */
-/*}
-
-/* Style the headings */
-  /*h1 {
-  /*text-align: center; /* Center align headings */
-/*}
-
-/* For the first section with class "gr" */
-/* Center the container */
-.gr {
+.products {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product {
+  margin: 3rem 1.5rem 2rem 2rem;
+  /* border: 1px solid var(--clr-grey-1); */
+  border-radius: var(--radius);
+  background-color: var(--clr-grey-10);
+  transition: var(--transition);
+  /* padding: 1rem; */
+}
+
+.product:hover {
+  transition: var(--transition);
+  transform: scale(1.0375);
+}
+
+
+.product-image {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  margin-bottom: 1rem;
+}
+
+.product-text {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.products-section .about-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.more-btn {
+  margin: 4rem auto 0 auto;
+  width: 200px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-radius: var(--radius) 0;
+}
+
+.more-btn span {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-left: 5px;
+}
+
+.price {
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+
+
+.cart-bottom {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background-color: #51cf66;
-  min-height: 100vh;
-  padding: 50px 0;
+  margin-left: 0.75rem;
+  /* margin-right: 0.5rem; */
+  margin-bottom: 0;
 }
 
-.gr .container {
-  max-width: 1000px;
-  width: 100%;
-  height: 450px;
-  background-color:var(--clr-white);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.cart-btn {
+  height: 55px;
+  font-size: 0.75rem;
+  border-radius: 0 0 var(--radius);
+  margin-bottom: 0;
 }
 
-/* Style the heading */
-.gr .container h1 {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 30px;
+.about-title {
+  margin-bottom: 0;
 }
 
-/* Style the paragraph */
-.gr .container p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #4b5563;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
 }
 
-/* Style for the dropdown menu */
-.dropdown-menu {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Style for dropdown items */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Style for dropdown buttons */
-.dropdown-btn {
-  text-decoration: none;
-  color: #333;
-  padding: 10px;
-  display: block;
-}
-
-/* Style for dropdown content */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  z-index: 1;
-  min-width: 160px;
-}
-
-/* Style for dropdown items */
-.dropdown-content li {
-  padding: 10px;
-  list-style: none;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color:#4caf50;
-  color: #ffffff;
-  padding: 10px 20px;
-  text-decoration: none; 
-  border-radius: 5px; 
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color:#66a80f;
-}
-
-
-
-
-
-/* Center the container */
-.yl {
-  display: flex;
-  justify-content: center;
-  background-color:#fff;
-  align-items: center;
-  min-height: 200vh;
-  padding: 50px 0;
-  height: 100vh;
-}
-
-.yl .container {
-  max-width: 1000px;
-  width: 100%;
-  height: 500px;
-  background-color:#51cf66;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  text-align: center; 
-}
-
-/* Style the heading */
-.yl .container h1 {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-/* Style the product images */
-.product-images {
-  display: flex;
-  justify-content: center; /* Add this line */
-  margin-bottom: 30px;
-}
-
-.product-images img {
-  width: 20%;
-  height: auto;
+.product {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  margin: 0 10px; /* Add this line */
 }
-
-.product-images img:hover {
-  transform: scale(1.1);
-}
-
-/* Style the paragraph */
-.yl .container p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #666;
-}
-/* Irom */
