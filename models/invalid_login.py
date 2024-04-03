@@ -17,10 +17,12 @@ class InvalidLogin(BaseModel, Base):
     __tablename__ = 'invalid_logins'
     user_name = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
+    reason = Column(String(128), nullable=False)
     login_date = Column(DateTime, default=datetime.utcnow)
   else:
       user_name = ""
       password = ""
+      reason = ""
       login_date = datetime.utcnow
 
   def __init__(self, *args, **kwargs):

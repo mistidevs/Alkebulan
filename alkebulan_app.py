@@ -38,8 +38,10 @@ def register():
     if request.method == "POST":
         missing_fields = []
         for field in required_fields:
-            if request.form.get(field) is None:
+            if request.form.get(field) == "":
                 missing_fields.append(field)
+
+        print(missing_fields)
         
         if missing_fields:
             error_message = f"Please provide the following missing fileds: {', '.join(missing_fields)}"
@@ -66,6 +68,7 @@ def login():
 
     required_fields = ["user_name", "password"]
     if request.method == "POST":
+        flag = 0
         missing_fields = []
         for field in required_fields:
             if request.form.get(field) is None:
@@ -79,6 +82,8 @@ def login():
         for key, value in consumers.items():
             print(request.form.get("user_name"))
             if value.user_name == request.form.get("user_name"):
+                flag = 1
+                print("The user is found")
                 consumer = storage.get(Consumer, value.id)
                 input_password = md5(request.form.get("password").encode()).hexdigest()
                 if consumer.password == input_password:
@@ -89,21 +94,26 @@ def login():
                     storage.close()
                     return redirect(url_for("home"))
                 else:
+                    print(request.form.get("password"))
+                    print("This password is wrong")
                     invalid_login = InvalidLogin(user_name=request.form.get("user_name"),
-                                                 password=input_password)
+                                                 password=request.form.get("password"),
+                                                 reason="Wrong password")
                     storage.new(invalid_login)
                     storage.save()
                     storage.close()
                     error_wrong_password = f"Wrong password"
                     return render_template("login.html", error_message=error_wrong_password)
-            else:
-                invalid_login = InvalidLogin(user_name=request.form.get("user_name"),
-                                             password="None")
-                storage.new(invalid_login)
-                storage.save()
-                storage.close()
-                error_no_user = f"This user does not exist"
-                return render_template("login.html", error_message=error_no_user)
+        if flag == 0:
+            print("This user does not exist")
+            invalid_login = InvalidLogin(user_name=request.form.get("user_name"),
+                                            password=request.form.get("password"),
+                                            reason="User does not exist")
+            storage.new(invalid_login)
+            storage.save()
+            storage.close()
+            error_no_user = f"This user does not exist"
+            return render_template("login.html", error_message=error_no_user)
     return render_template("login.html")
         
 @app.route("/logout")
