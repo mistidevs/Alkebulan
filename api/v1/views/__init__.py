@@ -11,3 +11,5 @@ from api.v1.views.admins import *
 from api.v1.views.farmer_products import *
 from api.v1.views.farmers import *
 from api.v1.views.orders import *
+from api.v1.views.valid_logins import *
+from api.v1.views.invalid_logins import *
