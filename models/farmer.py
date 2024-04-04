@@ -16,7 +16,7 @@ class Farmer(BaseModel, Base):
 
   if models.storage_t == 'db':
     __tablename__ = 'farmers'
-    picture = Column(String(128), default="/defaults/default_farmer.jpg")
+    picture = Column(String(128), default="/defaults/default_farmer.jpg", index=True)
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)

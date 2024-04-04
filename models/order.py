@@ -15,7 +15,6 @@ class Order(BaseModel, Base):
 
     if models.storage_t == 'db':
         __tablename__ = 'orders'
-        picture = Column(String(128), ForeignKey('farmer_products.picture'), nullable=False)
         consumer_id = Column(String(60), ForeignKey('consumers.id'), nullable=False)
         farmer_id = Column(String(60), ForeignKey('farmers.id'), nullable=False)
         product_id = Column(String(60), ForeignKey('products.id'), nullable=False)
