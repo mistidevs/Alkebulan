@@ -17,9 +17,11 @@ class ValidLogin(BaseModel, Base):
     __tablename__ = 'valid_logins'
     user_name = Column(String(128), nullable=False)
     login_date = Column(DateTime, default=datetime.utcnow)
+    consumer_id = Column(String(128), ForeignKey('consumers.id'))
   else:
       user_name = ""
       login_date = datetime.utcnow
+      picture = ""
 
   def __init__(self, *args, **kwargs):
       """initializes a valid_login"""

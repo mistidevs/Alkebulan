@@ -17,7 +17,7 @@ class Consumer(BaseModel, UserMixin, Base):
   import models
   if models.storage_t == 'db':
     __tablename__ = 'consumers'
-    picture = Column(String(128), default="/defaults/default_consumer.jpg", index=True)
+    picture = Column(String(128), default="/defaults/default_consumer.jpg")
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)
