@@ -11,7 +11,6 @@ class FarmerProduct(BaseModel, Base):
     """Representation of FarmerProduct """
     if models.storage_t == 'db':
         __tablename__ = 'farmer_products'
-        picture = Column(String(128), ForeignKey('products.picture'), nullable=False)
         farmer_id = Column(String(60), ForeignKey('farmers.id'), nullable=False)
         product_id = Column(String(60), ForeignKey('products.id'), nullable=False)
         price = Column(Integer, nullable=False)
