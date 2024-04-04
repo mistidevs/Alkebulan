@@ -11,6 +11,8 @@ from models.farmer_product import FarmerProduct
 from models.farmer import Farmer
 from models.order import Order
 from models.product import Product
+from models.valid_login import ValidLogin
+from models.invalid_login import InvalidLogin
 from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
@@ -18,7 +20,8 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 classes = {"Admin": Admin, "Consumer": Consumer, 
            "FarmerProduct": FarmerProduct, "Farmer": Farmer,
-           "Product": Product, "Order": Order}
+           "Product": Product, "Order": Order,
+           "ValidLogin": ValidLogin, "InvalidLogin": InvalidLogin}
 
 
 class DBStorage:

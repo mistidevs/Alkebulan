@@ -14,9 +14,9 @@
   color: inherit;
 }
 .logo-letter {
-  
   font-size: 40px;
   font-weight: 700;
+  color: var(--clr-primary);
 }
 
 .logo {
@@ -186,13 +186,10 @@
 }
 
 .ban p {
-  opacity: 100%;
   color: white;
+  font-size: 1.75rem;
 }
 .ban p,
 .ban h1 {
   align-items: center;
 }
-
-
-/* Irom */

@@ -4,28 +4,32 @@ from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String
-import models
 from hashlib import md5
+from flask_login import UserMixin
 import shlex
 
 
-class Consumer(BaseModel, Base):
+class Consumer(BaseModel, UserMixin, Base):
   """
   Consumer class for those purchasing farm produce
   """
 
+  import models
   if models.storage_t == 'db':
     __tablename__ = 'consumers'
+    picture = Column(String(128), default="/defaults/default_consumer.jpg")
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
     phone_number = Column(String(128), nullable=False)
   else:
+      picture = "/defaults/default_consumer.jpg"
       user_name = ""
       full_name = ""
       email = ""
       phone_number = ""
+      password = ""
 
   def __init__(self, *args, **kwargs):
       """initializes a consumer"""
