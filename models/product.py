@@ -15,12 +15,14 @@ class Product(BaseModel, Base):
 
   if models.storage_t == 'db':
     __tablename__ = 'products'
+    picture = Column(String(128), default="/defaults/default_product.jpg")
     name = Column(String(128), nullable=False)
     recommended_price = Column(Integer, nullable=False)
     max_price = Column(Integer, nullable=False)
     min_price = Column(Integer, nullable=False)
     description = Column(String(1024), nullable=False)
   else:
+      picture = "/defaults/default_consumer.jpg"
       name = ""
       recommended_price = 0
       max_price = 0

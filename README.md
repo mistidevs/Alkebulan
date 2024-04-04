@@ -10,7 +10,7 @@ bug (name of file) : (bug introduced or discovered)
 frustration (name of file) : (error or complication present)
 
 ### Pull Requests Commits
-feature (directories affected) : (feature added)
+feature (directories affected) : (feature added)  
 fix (directories affected) : (bug resolved)
 
 ## Application Programming Interface

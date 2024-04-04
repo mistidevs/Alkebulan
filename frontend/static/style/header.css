@@ -1,0 +1,195 @@
+/* Omar Douiba: douibaomar@gmail.com */
+/* HEADER */
+
+/* NAVBAR */
+/* Navbar Styling */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: inherit;
+}
+.logo-letter {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--clr-primary);
+}
+
+.logo {
+  font-size: 30px;
+  margin-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.nav-menu {
+  display: flex;
+  line-height: 1.75;
+  list-style: none;
+}
+
+/* .nav-menu li {
+  padding: 0.rem;
+} */
+
+.nav-menu li a {
+  color: var(--clr-grey-1);
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 0.75rem;
+}
+
+.nav-menu li:hover a {
+  border-bottom: 2px solid var(--clr-primary);
+  color: var(--clr-primary);
+  margin-bottom: 0;
+  padding-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+.user,
+.shop-icon {
+  font-size: 1.5rem;
+  color: var(--clr-primary);
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+.user-btn {
+  display: none;
+  opacity: 0;
+  margin-right: 1.5rem;
+}
+
+.user-btn.show {
+  background-color: var(--clr-grey-10);
+  display: block;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  opacity: 1;
+  width: 150px;
+  height: 300px;
+  z-index: 2;
+}
+.signup-btn {
+  margin-right: 1rem;
+}
+.signup-btn,
+.login-btn {
+  border-radius: var(--radius);
+  height: 35px;
+  margin: 1rem;
+}
+
+.search-btn {
+  height: 35px;
+  position: absolute;
+  left: 130px;
+}
+.main-user {
+  position: relative;
+}
+.user:hover .user-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-color: var(--clr-grey-10);
+  z-index: 1;
+}
+.search {
+  position: relative;
+}
+.search-bar {
+  height: 35px;
+  width: 150px;
+  margin-right: 3rem;
+}
+
+.search-bar::placeholder {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.nav-icon {
+  display: none;
+}
+
+/* media query phone screen*/
+@media screen and (max-width: 600px) {
+  .logo-letter {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .logo {
+    font-size: 30px;
+  }
+
+  .signup-btn {
+    margin-left: 1rem;
+  }
+  .user-btn .btn,
+  .user-btn .btn {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .nav-menu,
+  .search {
+    display: none;
+  }
+  /* .navbar {
+    flex-direction: column;
+  } */
+  /* .navbar {
+    position: relative;
+  } */
+  .nav-icon {
+    display: block;
+    margin-right: 1rem;
+    font-size: 2rem;
+    position: relative;
+  }
+
+  .nav-icon:hover div {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: var(--clr-grey-10);
+    height: 400px;
+    width: 100px;
+  }
+}
+
+/* BANNER */
+.ban {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../images/banner.jpg") center/cover no-repeat fixed;
+  height: calc(80vh - 70px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.ban h1 {
+  opacity: 100%;
+  color: white;
+}
+
+.ban p {
+  color: white;
+  font-size: 1.75rem;
+}
+.ban p,
+.ban h1 {
+  align-items: center;
+}
