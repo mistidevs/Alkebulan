@@ -2,7 +2,7 @@
 """ Starts a Flash Web Application """
 from os import environ
 from flask import Flask, render_template, request, url_for, redirect
-from flask_login import LoginManager, login_user, logout_user
+from flask_login import LoginManager, login_user, logout_user, current_user
 from hashlib import md5
 
 
@@ -20,7 +20,7 @@ def close_db(error):
     storage.close()
 
 @login_manager.user_loader
-def loader_user(user_id):
+def load_user(user_id):
     """Loads a user from memory"""
     from models.consumer import Consumer
     from models import storage
@@ -121,6 +121,29 @@ def logout():
     """Logs a user out"""
     logout_user()
     return redirect(url_for("home"))
+
+@app.route("/order/<farmer_product_id>", methods=["GET", "POST"], strict_slashes=False)
+def making_an_order(farmer_product_id):
+    """Ordering a product from a farmer"""
+    from models import storage
+    from models.farmer_product import FarmerProduct
+    from models.order import Order
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    if request.method == "POST":
+        farmer_product = storage.get(FarmerProduct, farmer_product_id)
+        print(current_user.id)
+        order = Order(consumer_id=current_user.id,
+                      farmer_id=farmer_product.farmer_id,
+                      product_id=farmer_product.product_id,
+                      unit_price=farmer_product.price,
+                      quantity=request.form.get("quantity"),
+                      total_price=int(farmer_product.price) * int(request.form.get("quantity")))
+        storage.new(order)
+        storage.save()
+        storage.close()
+        return render_template("home.html")
+    return render_template("order.html")
 
 @app.route("/")
 def home():
