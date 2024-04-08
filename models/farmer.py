@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the Farmers class"""
+"""This is the Farmer class"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
@@ -16,6 +16,7 @@ class Farmer(BaseModel, Base):
 
   if models.storage_t == 'db':
     __tablename__ = 'farmers'
+    picture = Column(String(128), default="/defaults/default_farmer.jpg", index=True)
     user_name = Column(String(128), nullable=False)
     full_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False)
@@ -25,6 +26,7 @@ class Farmer(BaseModel, Base):
     latitude = Column(Float(precision=8), nullable=False)
     longitude = Column(Float(precision=8), nullable=False) 
   else:
+      picture = "/defaults/default_consumer.jpg"
       user_name = ""
       full_name = ""
       email = ""

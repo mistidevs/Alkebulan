@@ -15,6 +15,7 @@ class FarmerProduct(BaseModel, Base):
         product_id = Column(String(60), ForeignKey('products.id'), nullable=False)
         price = Column(Integer, nullable=False)
     else:
+        picture = ""
         farmer_id = ""
         product_id = ""
         price = 0

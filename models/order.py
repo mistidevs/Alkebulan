@@ -25,6 +25,7 @@ class Order(BaseModel, Base):
         unit_price = Column(Integer, nullable=False)
         total_price = Column(Integer, nullable=False)
     else:
+        picture = ""
         consumer_id = ""
         farmer_id = ""
         product_id = ""
