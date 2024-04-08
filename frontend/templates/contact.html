@@ -116,7 +116,7 @@
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
             
             // Get form values
             var name = document.getElementById("name").value;
@@ -124,17 +124,12 @@
             var subject = document.getElementById("subject").value;
             var message = document.getElementById("message").value;
             
-            // You can perform further validation here
-            
-            // Send the form data to the server using AJAX
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "your_server_endpoint_here", true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Handle success response from the server
                     console.log("Message sent successfully!");
-                    // You can display a success message or perform other actions here
                 }
             };
             var data = JSON.stringify({name: name, email: email, subject: subject, message: message});
