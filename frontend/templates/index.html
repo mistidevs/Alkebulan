@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../static/style/product.css" />
     <link rel="stylesheet" href="../static/style/footer.css" />
     <link rel="stylesheet" href="../static/style/about.css" />
+    <link rel="stylesheet" href="../static/style/details.css" />
     <!-- Awesome Font -->
     <link
       rel="stylesheet"
@@ -54,7 +55,7 @@
           </form>
         </div>
         <div class="main-user">
-          <a href="#"><i class="fas fa-shopping-cart shop-icon"></i></a>
+          <a href="#" class="shop-icon"><i class="fas fa-shopping-cart shop-icon"></i> <span>0</span></a>
           <i class="fa-solid fa-user user"></i>
 
           <div class="user-btn">
@@ -81,7 +82,7 @@
           <img src="../static/images/banner.jpg" alt="" class="about-img-div" />
         </article>
         <article class="about-text">
-          <h1>Grown <span class="about-span">by Nature</span></h1>
+          <h1><span class="about-span">A</span>lkabulan</h1>
           <div class="bottom-line"></div>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero
@@ -93,11 +94,63 @@
       </article>
     </section>
     <!-- End About section -->
+    <!-- Start Best selling section -->
+    <section id="products-scroll" class="container">
+      <h1 class="about-title">Best <span class="about-span">Selling</span></h1>
+      <div class="listProductsHome">
+        <article class="item">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
+          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
+        </article>
+        <article class="item">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
+          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
+        </article>
+        <article class="item">
+          <div class="product-img">
+            <img
+              src="../static/images/vegetable2.jpeg"
+              alt=""
+              class="product-image"
+            />
+          </div>
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
+          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
+        </article>
+      </div>
+    </section>
     <!-- Start Products section -->
-    <section id="products-scroll" class="products-section">
-      <h1 class="about-title">Prod<span class="about-span">ucts</span></h1>
-      <article class="container products">
-        <article class="product">
+    <!-- Start Products section -->
+    <section id="products-scroll" class="container">
+      <h1 class="about-title">Products <span class="about-span">list</span></h1>
+      <div class="listProductsHome">
+        <article class="item">
           <div class="product-img">
             <img
               src="../static/images/vegetable2.jpeg"
@@ -105,19 +158,14 @@
               class="product-image"
             />
           </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
           </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">20$</span></h2>
-            <!-- <button href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</button> -->
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-
-          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
         </article>
-
-        <article class="product">
+        <article class="item">
           <div class="product-img">
             <img
               src="../static/images/vegetable2.jpeg"
@@ -125,15 +173,14 @@
               class="product-image"
             />
           </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
           </div>
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
         </article>
-        <article class="product">
+        <article class="item">
           <div class="product-img">
             <img
               src="../static/images/vegetable2.jpeg"
@@ -141,16 +188,14 @@
               class="product-image"
             />
           </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
           </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <button class="btn cart-btn show-details-btn">More Details</button>
-          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
         </article>
-        <article class="product">
+        <article class="item">
           <div class="product-img">
             <img
               src="../static/images/vegetable2.jpeg"
@@ -158,16 +203,14 @@
               class="product-image"
             />
           </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
           </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
         </article>
-        <article class="product">
+        <article class="item">
           <div class="product-img">
             <img
               src="../static/images/vegetable2.jpeg"
@@ -175,16 +218,14 @@
               class="product-image"
             />
           </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
           </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
         </article>
-        <article class="product">
+        <article class="item">
           <div class="product-img">
             <img
               src="../static/images/vegetable2.jpeg"
@@ -192,77 +233,18 @@
               class="product-image"
             />
           </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
+          <h2>Multiphos</h2>
+          <div class="price">
+            <div class="newPrice"><span>$200</span></div>
+            <div class="oldPrice"><del>$20</del></div>
           </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
+          <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp ADD TO CART</button>
         </article>
-  
-        <a href="../templates/more-products.html" class="btn more-btn">More <span>&rarr;</span></a>
+      </div>
+      <a href="../templates/more-products.html" class="btn more-btn">More <span>&rarr;</span></a>
     </section>
     <!-- End Products section -->
-    <!-- Start Best selling section -->
-    <section>
-      <h1 class="about-title">Best <span class="about-span">Selling</span></h1>
-      <article class="container products">
-        <article class="product">
-          <div class="product-img">
-            <img
-              src="../static/images/vegetable2.jpeg"
-              alt=""
-              class="product-image"
-            />
-          </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
-          </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
-        </article>
-        <article class="product">
-          <div class="product-img">
-            <img
-              src="../static/images/vegetable2.jpeg"
-              alt=""
-              class="product-image"
-            />
-          </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
-          </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
-        </article>
-        <article class="product">
-          <div class="product-img">
-            <img
-              src="../static/images/vegetable2.jpeg"
-              alt=""
-              class="product-image"
-            />
-          </div>
-          <div class="product-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupta
-          </div>
-
-          <div class="cart-bottom">
-            <h2 class="price"><span class="about-span">200$</span></h2>
-            <a href="../templates/details.html" class="btn cart-btn show-details-btn">More Details</a>
-          </div>
-        </article>
-      </article>
-    </section>
-    <!-- Start Products section -->
+    
     <!-- Start footer -->
     <footer class="footer">
       <p>&copy; 2024 Alkabulan. All Rights Reserved. <h5>Made by Omar & Irom & Misati</h5></p>
