@@ -31,7 +31,7 @@ Variables
 }
 body {
   font-family: var(--ff-primary);
-  background: var(--clr-white);
+  background: var(--clr-grey-10);
   color: var(--clr-grey-1);
   font-size: 0.875rem;
   line-height: 1.5;
@@ -92,24 +92,38 @@ h4 {
   }
 }
 
-/* Omar */
-.btn {
+
+.btn, .add-to-cart-btn {
   text-transform: uppercase;
-  background-color: var(--clr-primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
   color: var(--clr-white);
   padding: 0.375rem 0.75rem;
+}
+
+.btn {
+  background-color: var(--clr-primary);
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
   font-size: 0.875rem;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
 }
+
 .btn:hover {
   background: var(--clr-primary-grey);
   color: var(--clr-primary);
+}
+
+.add-to-cart-btn {
+  background-color: var(--clr-grey-1);
+  /* border-radius: ; */
+}
+
+.add-to-cart-btn:hover {
+  background: var(--clr-primary-grey);
+  color: var(--clr-grey-1);
 }
 
 .container {

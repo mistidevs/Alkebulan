@@ -18,7 +18,25 @@
 }
 
 .about-section {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 450px);
+}
+
+/* media */
+@media screen and (max-width: 750px) {
+  .about-img {
+    display: none;
+  }
+  .about-section {
+    display: flex;
+    text-align: center;
+    margin-bottom: -70px;
+  }
+  .about-text h1 {
+    font-size: 2rem !important;
+    font-weight: 500;
+    text-align: start;
+  }
 }
 
 article .about-text {
@@ -27,7 +45,7 @@ article .about-text {
 }
 
 .about-title {
-  max-width: 400px;
+  max-width: 450px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5rem;
@@ -37,6 +55,7 @@ article .about-text {
 .about-text h1 {
   font-size: 3rem;
 }
+
 .about-span {
   color: var(--clr-primary);
 }

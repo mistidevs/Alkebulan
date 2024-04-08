@@ -1,150 +1,66 @@
-nav ul {
-  list-style-type: none;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-}
-
-main {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
 .product-details {
-  flex: 0 0 60%;
-}
-
-.product-details h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.product-details .price {
-  font-size: 18px;
-  color: #777;
-}
-
-.product-details p {
-  margin-bottom: 20px;
-}
-
-.add-to-cart-btn {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-  margin-bottom: 1rem;
-  margin-left: 0.75rem;
-  margin-top: 1rem;
-}
-
-.related-products {
-  flex: 0 0 30%;
-}
-
-.related-products h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.product {
-  margin-bottom: 20px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.selected-product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px solid red;
+  padding: 20px 5px 10px 5px;
+}
+
+.product-info {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.product img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
-.product p {
-  margin-top: 10px;
-  margin-left: 0.75rem;
-}
-
-.product .price {
-  color: #777;
-  margin-left: 0.75rem;
-}
-
-.product-container {
-  display: flex;
-  background-color: #f9f9f9;
-  border: 2px solid #3399ff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .product-images {
-  flex: 1;
+  grid-gap: 15px;
+  width: 500px;
 }
 
-.product-images img {
-  display: block;
-  width: 100%;
-  height: auto;
+.product-images img:nth-child(1) {
+  margin-bottom: 1rem;
 }
 
-.product-details {
-  flex: 1;
-  padding: 20px;
-}
-
-.product-details h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.product-details .rating {
-  color: #777;
-  margin-bottom: 10px;
-}
-
-.product-details .price {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.product-details p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #666;
-}
-
-.add-to-cart-btn {
-  padding: 10px 20px;
-  background-color: #3399ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+.product-images img:nth-child(1),
+.product-images img:nth-child(2),
+.product-images img:nth-child(3),
+.product-images img:nth-child(4) {
+  border: 3px solid var(--clr-primary);
   cursor: pointer;
-  margin-right: 10px;
 }
 
-.add-to-cart-btn:hover {
-  background-color: #007bff;
+.product-next-img {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 500px;
+  gap: 20px;
+  object-fit: contain;
 }
 
-.other-img {
-  display: flex;
-  margin-top: 0.2rem;
-  gap: 52px;
-  width: 150px;
+.related-products-title {
+  margin: 4.75rem 0 3rem 0;
+}
+
+.related-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.product-info h2 {
+  margin-top: 1rem;
+  color: var(--clr-primary);
+}
+
+.product-info p {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 400px;
+  max-width: 500px;
+  color: var(--clr-grey-1);
 }
