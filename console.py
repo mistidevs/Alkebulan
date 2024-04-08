@@ -11,11 +11,14 @@ from models.farmer_product import FarmerProduct
 from models.farmer import Farmer
 from models.order import Order
 from models.product import Product
+from models.valid_login import ValidLogin
+from models.invalid_login import InvalidLogin
 import shlex  # for splitting the line along spaces except in double quotes
 
 classes = {"BaseModel": BaseModel, "Admin": Admin, "Consumer": Consumer, 
            "FarmerProduct": FarmerProduct, "Farmer": Farmer,
-           "Product": Product, "Order": Order}
+           "Product": Product, "Order": Order,
+           "ValidLogin": ValidLogin, "InvalidLogin": InvalidLogin}
 
 
 class HBNBCommand(cmd.Cmd):

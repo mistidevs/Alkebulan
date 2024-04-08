@@ -12,11 +12,14 @@ from models.farmer_product import FarmerProduct
 from models.farmer import Farmer
 from models.order import Order
 from models.product import Product
+from models.valid_login import ValidLogin
+from models.invalid_login import InvalidLogin
 from hashlib import md5
 
 classes = {"BaseModel": BaseModel, "Admin": Admin, "Consumer": Consumer, 
            "FarmerProduct": FarmerProduct, "Farmer": Farmer,
-           "Order": Order, "Product": Product}
+           "Order": Order, "Product": Product,
+           "ValidLogin": ValidLogin, "InvalidLogin": InvalidLogin}
 
 
 class FileStorage:
