@@ -21,6 +21,7 @@ class Order(BaseModel, Base):
         order_date = Column(DateTime, default=datetime.utcnow)
         order_verification_pin = Column(Integer, default=lambda: random.randint(100000, 999999))
         completed = Column(Boolean, default=False)
+        in_cart = Column(Boolean, default=True)
         quantity = Column(Integer, nullable=False)
         unit_price = Column(Integer, nullable=False)
         total_price = Column(Integer, nullable=False)
@@ -35,6 +36,7 @@ class Order(BaseModel, Base):
         total_price = 0
         order_verification_pin = lambda: random.randint(100000, 999999)
         completed = False
+        in_cart = True
 
     def __init__(self, *args, **kwargs):
         """Initializes an order"""
