@@ -21,7 +21,7 @@ class ValidLogin(BaseModel, Base):
   else:
       user_name = ""
       login_date = datetime.utcnow
-      picture = ""
+      consuner_id = ""
 
   def __init__(self, *args, **kwargs):
       """initializes a valid_login"""

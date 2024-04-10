@@ -25,6 +25,8 @@ class Order(BaseModel, Base):
         quantity = Column(Integer, nullable=False)
         unit_price = Column(Integer, nullable=False)
         total_price = Column(Integer, nullable=False)
+        farmer_review = Column(String(1024), nullable=True)
+        consumer_review = Column(String(1024), nullable=True)
     else:
         picture = ""
         consumer_id = ""
@@ -37,6 +39,8 @@ class Order(BaseModel, Base):
         order_verification_pin = lambda: random.randint(100000, 999999)
         completed = False
         in_cart = True
+        farmer_review = ""
+        consumer_review = ""
 
     def __init__(self, *args, **kwargs):
         """Initializes an order"""
