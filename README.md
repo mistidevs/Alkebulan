@@ -6,9 +6,9 @@ Bringing the Farm to your Doorstep
 ### Misati Nyambane
 He worked as the backend engineer for the project. He focused on building the database schema and API. Find him at the following platforms:
 
-[GitHub]('https://github.com/mistidevs')
+[GitHub](https://github.com/mistidevs)
 
-[LinkedIn]('https://www.linkedin.com/in/misati-nyambane/')
+[LinkedIn](https://www.linkedin.com/in/misati-nyambane/)
 
 [Gmail](mailto:mistidevs@gmail.com)
 
@@ -21,11 +21,11 @@ He worked as the backend engineer for the project. He focused on building the da
 ## Live Demo
 The live demo detailing the Minimum Viable Product we worked on can be found here:
 
-[Alkebulan]('http://www.demistify.tech/alkebulan')
+[Alkebulan](http://www.demistify.tech/alkebulan)
 
 To access the API only use this link:
 
-[Alkebulan API]('http://www.demistify.tech/alkebulan/api/v1')
+[Alkebulan API](http://www.demistify.tech/alkebulan/api/v1)
 
 ## Introduction
 Alkebulan is a visionary project that dares to give power back to those with green fingers. There was a time not so long ago when farming was an extremely profitable business that was not riddled with bureaucracy and opaqueness. However, in recent times predatory people and systems deprive farmers of their hard-earned profits. And in doing so, force numerous consumers to purchase mass produced and generally tasteless farm produce. Moreover, at times, these predatory systems purchase so much produce that it inadvertently goes bad leading to disease when it is sold to consumers at the same throw away prices that is was obtained from the farmers.
