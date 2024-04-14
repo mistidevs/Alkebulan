@@ -1,5 +1,7 @@
 #!/usr/bin/python
-""" holds class FarmerProduct"""
+"""
+This is the class FarmerProduct
+"""
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
@@ -8,7 +10,9 @@ from sqlalchemy import Column, Integer, ForeignKey, String
 
 
 class FarmerProduct(BaseModel, Base):
-    """Representation of FarmerProduct """
+    """
+    Representation of FarmerProduct
+    """
     if models.storage_t == 'db':
         __tablename__ = 'farmer_products'
         farmer_id = Column(String(60), ForeignKey('farmers.id'), nullable=False)
@@ -21,5 +25,7 @@ class FarmerProduct(BaseModel, Base):
         price = 0
 
     def __init__(self, *args, **kwargs):
-        """initializes FarmerProduct"""
+        """
+        Initializes a FarmerProduct
+        """
         super().__init__(*args, **kwargs)

@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for Farmers """
+"""
+Methods that handle all default RESTFul API actions for Farmers
+"""
 from models.farmer import Farmer
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
-from flasgger.utils import swag_from
 
 
 @app_views.route('/farmers', methods=['GET'], strict_slashes=False)
@@ -22,7 +23,9 @@ def get_farmers():
 
 @app_views.route('/farmers/<farmer_id>', methods=['GET'], strict_slashes=False)
 def get_farmer(farmer_id):
-    """ Retrieves a farmer """
+    """
+    Retrieves a Farmer
+    """
     farmer = storage.get(Farmer, farmer_id)
     if not farmer:
         abort(404)
@@ -32,12 +35,10 @@ def get_farmer(farmer_id):
 
 @app_views.route('/farmers/<farmer_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/farmer/delete_farmer.yml', methods=['DELETE'])
 def delete_farmer(farmer_id):
     """
-    Deletes a farmer Object
+    Deletes a Farmer
     """
-
     farmer = storage.get(Farmer, farmer_id)
 
     if not farmer:
@@ -50,7 +51,6 @@ def delete_farmer(farmer_id):
 
 
 @app_views.route('/farmers', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/farmer/post_farmer.yml', methods=['POST'])
 def post_farmer():
     """
     Creates a farmer

@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for Consumers """
+"""
+Methods that handle all default RESTFul API actions for Consumers
+"""
 from models.consumer import Consumer
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
-from flasgger.utils import swag_from
 
 
 @app_views.route('/consumers', methods=['GET'], strict_slashes=False)
@@ -22,7 +23,9 @@ def get_consumers():
 
 @app_views.route('/consumers/<consumer_id>', methods=['GET'], strict_slashes=False)
 def get_consumer(consumer_id):
-    """ Retrieves a consumer """
+    """
+    Retrieves a Consumer
+    """
     consumer = storage.get(Consumer, consumer_id)
     if not consumer:
         abort(404)
@@ -32,12 +35,10 @@ def get_consumer(consumer_id):
 
 @app_views.route('/consumers/<consumer_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/consumer/delete_consumer.yml', methods=['DELETE'])
 def delete_consumer(consumer_id):
     """
-    Deletes a consumer Object
+    Deletes a Consumer
     """
-
     consumer = storage.get(Consumer, consumer_id)
 
     if not consumer:
@@ -50,10 +51,9 @@ def delete_consumer(consumer_id):
 
 
 @app_views.route('/consumers', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/consumer/post_consumer.yml', methods=['POST'])
 def post_consumer():
     """
-    Creates a consumer
+    Creates a Consumer
     """
     if not request.get_json():
         abort(400, description="Not a JSON")
@@ -79,7 +79,7 @@ def post_consumer():
 @app_views.route('/consumers/<consumer_id>', methods=['PUT'], strict_slashes=False)
 def put_consumer(consumer_id):
     """
-    Updates a consumer
+    Updates a Consumer
     """
     consumer = storage.get(Consumer, consumer_id)
 

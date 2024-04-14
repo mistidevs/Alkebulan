@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This is the Orders class
+"""
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
@@ -43,5 +46,7 @@ class Order(BaseModel, Base):
         consumer_review = ""
 
     def __init__(self, *args, **kwargs):
-        """Initializes an order"""
+        """
+        Initializes an Order
+        """
         super().__init__(*args, **kwargs)

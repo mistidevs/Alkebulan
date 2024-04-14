@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This is the Consumers class"""
+"""
+This is the Consumers class
+"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
@@ -13,7 +15,6 @@ class Consumer(BaseModel, UserMixin, Base):
   """
   Consumer class for those purchasing farm produce
   """
-
   import models
   if models.storage_t == 'db':
     __tablename__ = 'consumers'
@@ -32,11 +33,15 @@ class Consumer(BaseModel, UserMixin, Base):
       password = ""
 
   def __init__(self, *args, **kwargs):
-      """initializes a consumer"""
+      """
+      Initializes a Consumer
+      """
       super().__init__(*args, **kwargs)
 
   def __setattr__(self, name, value):
-      """sets a password with md5 encryption"""
+      """
+      Sets a password with md5 encryption
+      """
       if name == "password":
           value = md5(value.encode()).hexdigest()
       super().__setattr__(name, value)
