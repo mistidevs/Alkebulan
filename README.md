@@ -63,6 +63,14 @@ sudo apt install python3-dev default-libmysqlclient-dev build-essential pkg-conf
 sudo pip install mysqlclient
 ```
 
+Next, we need to create the database that we will use for the web application. Furthermore, a user dedicated specifically to this web application is invaluable. To effect this run the following command:
+
+```{bash}
+cat setup.sql | sudo mysql
+```
+
+This will pipe the contents of the file setup.sql to a mysql instance effectively creating a user and database. The file can be customised as needed.
+
 ### Installing Python Packages
 The following command should install all the Python packages needed to run the web application:
 
@@ -71,10 +79,58 @@ pip install flask flask-cors flask-login hashlib shlex flasgger sqlalchemy os da
 ```
 
 ## Usage
+### The Console
+The console can be used with a FileStorage engine or with a DBStorage engine. To start it with the file storage engine run the command as follows ensuring the current user has executable rights on the file:
+
+```{bash}
+python3 ./console.py
+```
+
+To run it with a database connection run it as follows:
+
+```{bash}
+ALKEBULAN_MYSQL_USER=alkebulan_dev ALKEBULAN_MYSQL_PWD=alkebulan_dev_pwd ALKEBULAN_MYSQL_HOST=localhost ALKEBULAN_MYSQL_DB=alkebulan_db ALKEBULAN_TYPE_STORAGE=db python3 ./console.py
+```
+
+This aligns with the configuration present in the setup.sql file. The image below shows the console in action.
+
+![Console](./console.png)
+
+### The API
+It is recommended that the API is run only with the DBStorage option. This is because the API has been built for production rather than debugging and testing new features. The API is thus run using the following command:
+
+```{bash}
+ALKEBULAN_MYSQL_USER=alkebulan_dev ALKEBULAN_MYSQL_PWD=alkebulan_dev_pwd ALKEBULAN_MYSQL_HOST=localhost ALKEBULAN_MYSQL_DB=alkebulan_db ALKEBULAN_TYPE_STORAGE=db python3 -m api.v1.app
+```
+
+This will start the API on port 5001. However, another port can be specified using the `HBNB_API_PORT` environmental variable. Similarly, the host can be specified using the `HBNB_API_HOST` variable.
+
+The pictures below show the routes `api/v1/farmers` and `api/v1/consumers` respectively:
+
+![api/v1/farmers](./api_farmers.png)
+
+![api/v1/consumers](./api_consumers.png)
+
+The API can also be invoked from the terminal as follows:
+
+![api/v1/stats](./api_stats.png)
 
 ## Backend
-
 ### Database Schema
+The database system I chose is MySQL and the ORM is SQLAlchemy. It took 10 iterations to reach upon my current database schema and I am still counting. The database has the following tables:
+
+- Farmers: This table holds all the farmers that have set up store with Alkebulan.
+- Consumers: This table holds all the people who trust Alkebulan to bring the farm to their doorstep.
+- Orders: This table holds all the orders that have been made by consumers to farmers.
+- Products: These are all the products that Alkebulan sells at any one point.
+- Farmer Products: This is a table holding pairs of a farmer and the each and every product they sell.
+- Valid Logins: These are all the logins that are valid.
+- Invalid Logins: These are all the logins that are invalid
+- Admins: This table holds all the administrators present in the database. They are able to monitor all other operations.
+
+Furthermore, the schema is as below:
+
+![Database Schema](./database_schema_11th.png)
 
 ### Application Programming Interface
 #### Methods
