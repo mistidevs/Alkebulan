@@ -75,7 +75,7 @@ This will pipe the contents of the file setup.sql to a mysql instance effectivel
 The following command should install all the Python packages needed to run the web application:
 
 ```{bash}
-pip install flask flask-cors flask-login hashlib shlex flasgger sqlalchemy os datetime uuid random cmd
+pip install flask flask-cors flask-login flasgger sqlalchemy datetime uuid
 ```
 
 ## Usage
