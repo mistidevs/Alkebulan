@@ -116,6 +116,11 @@ The API can also be invoked from the terminal as follows:
 ![api/v1/stats](./api_stats.png)
 
 ## Backend
+### A Brief Tangent
+The backend is often an overlooked or frustrating part of a project. It feels really amazing when things ‘just’ work. However, when they are slow or even buggy it can be really annoying. Think about this, if YouTube/Facebook/Instagram/TikTok began to run even a few seconds slower at every click it would lead to a loss of user interest and people would honestly learn to touch grass more.
+
+To iterate in another perspective. If a school’s e-learning platform became buggy and slow this would frustrate the aims of creating a seamless learning environment. In our perspective, having a blazing fast scalable product allows thousands or even millions of users to able to access fresh farm products in season. Farm produce easily goes bad and downtime of even half a day could lead to spoilage of farm produce on a huge magnitude. Thus, stability and efficiency is the cornerstone of this implementation.
+
 ### Database Schema
 The database system I chose is MySQL and the ORM is SQLAlchemy. It took 10 iterations to reach upon my current database schema and I am still counting. The database has the following tables:
 
