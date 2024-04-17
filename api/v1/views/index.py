@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Getting Statistics and Status of the API """
+"""
+Getting Statistics and Status of the API
+"""
 
 from models import storage
 from models.admin import Admin
@@ -15,7 +17,7 @@ from flask import jsonify
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
-def status():
+def api():
     """
     Status of API
     """

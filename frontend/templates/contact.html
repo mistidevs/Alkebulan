@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="../static/style/header.css" />
+    <link rel="stylesheet" href="../static/style/common.css" />
+    <link rel="stylesheet" href="../static/style/contact.css" />
+    <link rel="stylesheet" href="../static/style/footer.css" />
+    <!-- Awesome Font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><span class="logo-letter">A</span>lkabulan</a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="../templates/index.html">Home</a></li>
+                <li><a href="../templates/more-products.html">Products</a></li>
+                <li><a href="#about-scroll">About Us</a></li>
+                <li><a href="../templates/contact.html">Contact Us</a></li>
+            </ul>
+
+            <div class="search">
+                <form action="#">
+                    <input
+                        class="search-bar"
+                        type="text"
+                        name="search"
+                        id=""
+                        placeholder="Search.."
+                    />
+                    <button type="submit" class="btn search-btn">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="main-user">
+                <a href="#"><i class="fas fa-shopping-cart shop-icon"></i></a>
+                <i class="fa-solid fa-user user"></i>
+
+                <div class="user-btn">
+                    <button class="btn signup-btn" onclick="redirectToSignUp()">Sign Up</button>
+                    <button class="btn login-btn" onclick="redirectToLogin()">Log In</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Contact Page -->
+    <section id="contact">
+        <div class="banner">
+            <img src="../static/images/banner.jpg" alt="Banner Image">
+            <div class="banner-heading">
+                <h1>Contact Us</h1>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State, Zip Code</p>
+                        <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope"></i> contact@example.com</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-image-container">
+                        <img src="../static/images/contact_image.avif" alt="A beautiful sunset" class="contact-image">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Alkabulan. All Rights Reserved. <h5>Made by Omar & Irom & Misati</h5></p>
+    </footer>
+    <!-- End footer -->
+    <script src="../static/scripts/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var subject = document.getElementById("subject").value;
+            var message = document.getElementById("message").value;
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "your_server_endpoint_here", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log("Message sent successfully!");
+                }
+            };
+            var data = JSON.stringify({name: name, email: email, subject: subject, message: message});
+            xhr.send(data);
+        });
+    </script>
+</body>
+</html>    

@@ -3,6 +3,7 @@
 This is the Orders class
 """
 import models
+import random
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
