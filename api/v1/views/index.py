@@ -19,6 +19,14 @@ def status():
     """
     Status of API
     """
+    return jsonify({"Alkebulan API": "Ready and Primed"})
+
+
+@app_views.route('/status', methods=['GET'], strict_slashes=False)
+def status():
+    """
+    Status of API
+    """
     return jsonify({"status": "OK"})
 
 
