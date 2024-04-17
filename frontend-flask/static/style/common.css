@@ -5,8 +5,7 @@ Fonts
 ============
 */
 @import url("https://fonts.googleapis.com/css?family=Catamaran:400,700|Grand+Hotel");
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 /*
 ============
@@ -21,7 +20,7 @@ Variables
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
   --ff-primary: "Catamaran", sans-serif;
-  --ff-secondary:  "Averia Serif Libre", serif;
+  --ff-secondary: "Averia Serif Libre", serif;
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
   --radius: 0.5rem;
@@ -94,8 +93,8 @@ h4 {
   }
 }
 
-
-.btn, .add-to-cart-btn {
+.btn,
+.add-to-cart-btn {
   text-transform: uppercase;
   cursor: pointer;
   border: none;

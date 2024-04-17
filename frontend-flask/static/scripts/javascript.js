@@ -4,10 +4,6 @@ $(document).ready(function () {
   let details;
   let totalPrice = 0;
   let totalQuantity = 0;
-  /* icon shop send you to shop page */
-  $(".shop-icon").on("click", function () {
-    window.location.href = "../templates/shop.html";
-  });
 
   /* ds */
   $(document).on("click", ".item", function (e) {
@@ -44,8 +40,6 @@ $(document).ready(function () {
         e.preventDefault();
         addToCart(product_id);
       });
-      window.location.href = "../templates/details.html";
-      // $(".selected-product").empty();
     }
   });
   /* add item to cart */
@@ -93,7 +87,7 @@ $(document).ready(function () {
                         <div class="leftItem">
                           <div class="left-item-img-title">
                             <img
-                              src="${info.images[0]}"
+                              src="${info.image}"
                               alt=""
                               class="cartItemImage"
                             />
@@ -117,9 +111,11 @@ $(document).ready(function () {
         $(".shop").append(productHTML);
       });
     } else {
-      $(".shop").append("<div class='not-found' > Your basket is empty! </div1>");
-      totalQuantity = 0;
-      $(".cart-title span").append(totalQuantity);
+      $(".shop").append(
+        "<div class='not-found' > Your basket is empty! </div1>"
+      );
+
+      $(".cart-title span").append("<p>0</p>");
     }
     if (cart.length > 0) {
       $(".shop").append(`<article class="checkout-bg">
@@ -177,7 +173,7 @@ $(document).ready(function () {
     $(".newPrice span").text(`$${totalPrice.toFixed(2)}`);
   };
 
-  $.getJSON("/Alkebulan/frontend/products.json", function (data) {
+  $.getJSON("/static/scripts/products.json", function (data) {
     products = data;
     if (localStorage.getItem("cart")) {
       cart = JSON.parse(localStorage.getItem("cart"));
@@ -185,46 +181,27 @@ $(document).ready(function () {
     }
   });
 
-  /* ----------------------------------------------------------------------- */
-  /* load data to products */
+  /* function to realod page when the user */
+  /* add item to the cart or try to increas it */
+  function autoRefresh() {
+    location.reload();
+  }
+});
+/* ----------------------------------------------------------------------- */
+/* load data to products */
 
-  /* using ajax to import data */
+/* using ajax to import data */
 
-  /* import data for best-selling-products at home page */
-  $.ajax({
-    url: "/Alkebulan/frontend/products.json",
-    type: "GET",
-    datatype: "json",
-    success: function (data) {
-      $.each(data.slice(10, 13), function (index, product) {
-        let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
-                            <img
-                              src="${product.images[0]}"
-                              alt=""
-                              class="product-image"
-                            />
-                            <h2>${product.name}</h2>
-                            <div class="price">
-                              <div class="newPrice"><span>$${product.newprice}</span></div>
-                              <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; ADD TO CART</button>
-                            </div>
-                          </article>`;
-
-        $(".bestSellingProducts").append(productHTML);
-      });
-    },
-  });
-
-  /* import data for products-list at home page*/
-  $.ajax({
-    url: "/Alkebulan/frontend/products.json",
-    type: "GET",
-    datatype: "json",
-    success: function (data) {
-      $.each(data.slice(0, 6), function (index, product) {
-        let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
+/* import data for products-list at home page*/
+$.ajax({
+  url: "/static/scripts/products.json",
+  type: "GET",
+  datatype: "json",
+  success: function (data) {
+    $.each(data.slice(0, 6), function (index, product) {
+      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
                                 <img
-                                src="${product.images[0]}"
+                                src="${product.image}"
                                 alt=""
                                 class="product-image"
                                 />
@@ -236,22 +213,47 @@ $(document).ready(function () {
                               <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART</button>
                             </article>`;
 
-        $(".listProductsHome").append(productHTML);
-      });
-    },
-  });
+      $(".listProductsHome").append(productHTML);
+    });
+  },
+});
 
-  /* import data for products at products pages */
-  $.ajax({
-    url: "/Alkebulan/frontend/products.json",
-    type: "GET",
-    datatype: "json",
-    success: function (data) {
-      let num = 0;
-      $.each(data, function (index, product) {
-        let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
+/* import data for best-selling-products at home page */
+$.ajax({
+  url: "/static/scripts/products.json",
+  type: "GET",
+  datatype: "json",
+  success: function (data) {
+    $.each(data.slice(10, 13), function (index, product) {
+      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
                             <img
-                            src="${product.images[0]}"
+                              src="${product.image}"
+                              alt=""
+                              class="product-image"
+                            />
+                            <h2>${product.name}</h2>
+                            <div class="price">
+                              <div class="newPrice"><span>$${product.newprice}</span></div>
+                              <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; ADD TO CART</button>
+                            </div>
+                          </article>`;
+
+      $(".bestSellingProducts").append(productHTML);
+    });
+  },
+});
+
+/* import data for products at products pages */
+$.ajax({
+  url: "/static/scripts/products.json",
+  type: "GET",
+  datatype: "json",
+  success: function (data) {
+    let num = 0;
+    $.each(data, function (index, product) {
+      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
+                            <img
+                            src="${product.image}"
                             alt=""
                             class="product-image"
                             />
@@ -262,26 +264,26 @@ $(document).ready(function () {
                             </div>
                         <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART</button>
                       </article>`;
-        num += 1;
-        if (num === 9) {
-          let productDot = `<h1>...</h1>`;
-          $(".products").append(productDot);
-        } else {
-          $(".products").append(productHTML);
-        }
-      });
-    },
-  });
+      num += 1;
+      if (num === 9) {
+        let productDot = `<h1>...</h1>`;
+        $(".products").append(productDot);
+      } else {
+        $(".products").append(productHTML);
+      }
+    });
+  },
+});
 
-  /* import data for related-product at details page */
-  $.ajax({
-    url: "/Alkebulan/frontend/products.json",
-    type: "GET",
-    datatype: "json",
-    success: function (data) {
-      $.each(data.slice(0, 3), function (index, product) {
-        let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
-                          <img src="${product.images[0]}" alt="" class="product-image" />
+/* import data for related-product at details page */
+$.ajax({
+  url: "/static/scripts/products.json",
+  type: "GET",
+  datatype: "json",
+  success: function (data) {
+    $.each(data.slice(0, 3), function (index, product) {
+      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
+                          <img src="${product.image}" alt="" class="product-image" />
                           <h2>${product.name}</h2>
                           <div class="price">
                               <div class="newPrice"><span>$${product.newprice}</span></div>
@@ -289,14 +291,7 @@ $(document).ready(function () {
                           </div>
                       <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART</button>
                     </article>`;
-        $(".related-products").append(productHTML);
-      });
-    },
-  });
-
-  /* function to realod page when the user */
-  /* add item to the cart or try to increas it */
-  function autoRefresh() {
-    location.reload();
-  }
+      $(".related-products").append(productHTML);
+    });
+  },
 });
