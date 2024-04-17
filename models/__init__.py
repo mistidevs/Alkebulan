@@ -5,7 +5,6 @@ initialize the models package
 
 from os import getenv
 
-
 storage_t = getenv("ALKEBULAN_TYPE_STORAGE")
 
 if storage_t == "db":

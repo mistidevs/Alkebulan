@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- HEAD -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alkabulan</title>
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/alkabulan-favicon.png') }}?{{ cache_id }}" type="image/x-icon">
+
+    <!-- CSS STYLE -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/header.css') }}?{{ cache_id }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/common.css') }}?{{ cache_id }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/product.css') }}?{{ cache_id }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/footer.css') }}?{{ cache_id }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/about.css') }}?{{ cache_id }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style/details.css') }}?{{ cache_id }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style/shop.css') }}?{{ cache_id }}" />
+    
+    <!-- AWESOME FONT -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- JQUERY-->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='/scripts/javascript.js') }}?{{ cache_id }}"></script>
+  </head>
+
+  <body>
+    <!-- START HEADER -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="{{ url_for('home') }}"><span class="logo-letter">A</span>lkebulan</a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('products') }}">Products</a></li>
+          {% if request.path == url_for('home') %}
+            <li><a href="#about-scroll">About Us</a></li>
+          {% else%}
+            <li><a href="{{ url_for('home') }}">About Us</a></li>
+          {% endif %}
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        </ul>
+        <div class="main-user">
+          <a href="{{ url_for('shop') }}?{{ cache_id }}" class="shop-icon"><i class="fas fa-shopping-cart shop-icon"></i> <span></span></a>
+          <i class="fa-solid fa-user user"></i>
+        </div>
+      </nav>
+      {% if request.path == url_for('home') %}
+      <div class="ban">
+        <h1>Alkebulan Store</h1>
+        <p> Bringing the Farm to your table</p>
+      </div>
+      {% endif %}
+    </header>
+    <!-- END HEADER -->
+
+    {% block body %}
+    {% endblock %}
+
+    <!-- START FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2024 Alkabulan. All Rights Reserved. <h5>Made by Omar & Irom & Misati</h5></p>
+    </footer>
+    
+    <!-- END FOOTER -->
+   
+    
+  </body>
+</html>
