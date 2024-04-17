@@ -28,7 +28,26 @@
   <h1 class="about-title">
     Best&nbsp; <span class="about-span">Selling</span>
   </h1>
-  <div class="bestSellingProducts"></div>
+  <div class="bestSellingProducts">
+    {% for product in products[0:3] %}
+    <article
+      class="item"
+      data-id="{{ product.id }}"
+      data-name="{{ product.name }}"
+    >
+      <img src="{{ product.picture }}" alt="" class="product-image" />
+      <h2>{{ product.name }}</h2>
+      <div class="price">
+        <div class="newPrice">
+          <span>${{ product.recommended_price }}</span>
+        </div>
+      </div>
+      <button class="add-to-cart-btn" id="add-to-cart">
+        <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
+      </button>
+    </article>
+    {% endfor %}
+  </div>
 </section>
 <!-- END BEST SELLING SECTION -->
 
@@ -37,7 +56,20 @@
   <h1 class="about-title">
     Products&nbsp; <span class="about-span">list</span>
   </h1>
-  <div class="listProductsHome" id="add-product"></div>
+  <div class="listProductsHome" id="add-product">
+    {% for product in products[0:6] %}
+    <article class="item" data-id="{{product.id}}" data-name="{{product.name}}">
+      <img src="${product.picture}" alt="" class="product-image" />
+      <h2>{{product.name}}</h2>
+      <div class="price">
+        <div class="newPrice"><span>${{product.recommended_price}}</span></div>
+        <button class="add-to-cart-btn" id="add-to-cart">
+          <i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; ADD TO CART
+        </button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
   <a href="{{ url_for('products') }}" class="btn more-btn"
     >More <span>&rarr;</span></a
   >
