@@ -227,9 +227,11 @@ def products():
     products = sorted(farmer_products, key=lambda k: k.created_at)
     return render_template("more-products.html", cache_id=cache_id, products=products,)
 
-@app.route("/shop")
+@app.route("/shop", methods=['GET', 'POST'])
 def shop():
     """The home page"""
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
     cache_id = uuid.uuid4()
     orders = [order for order in storage.all(Order).values() if order.consumer_id == current_user.id and order.in_cart == True]
     for order in orders:
