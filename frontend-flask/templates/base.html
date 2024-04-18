@@ -33,7 +33,7 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <script src="{{ url_for('static', filename='/scripts/javascript.js') }}?{{ cache_id }}"></script>
+    
   </head>
 
   <body>
@@ -82,8 +82,8 @@
     </footer>
     
     <!-- END FOOTER -->
-   
     
+    <script src="{{ url_for('static', filename='scripts/javascript.js') }}?{{ cache_id }}"></script>
   </body>
 
 </html>

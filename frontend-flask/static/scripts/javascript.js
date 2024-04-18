@@ -5,6 +5,21 @@ $(document).ready(function () {
   let totalPrice = 0;
   let totalQuantity = 0;
 
+  $.ajax({
+    url: "http://localhost:5000/api/v1/status/",
+    type: "GET",
+    dataType: "json",
+    success: function (response) {
+      if (response.status === "OK") {
+        $("DIV#api_status").addClass("available");
+      } else {
+        $("DIV#api_status").removeClass("available");
+      }
+    },
+    error: function (error) {
+      $("DIV#api_status").removeClass("available");
+    },
+  });
   /* ds */
   $(document).on("click", ".item", function (e) {
     let product_id = $(this).attr("data-id");
@@ -14,7 +29,7 @@ $(document).ready(function () {
       if (ceckID) {
         e.preventDefault();
       } else {
-        setInterval(autoRefresh, 100);
+        setInterval(autoRefresh, 1000);
         addToCart(product_id);
       }
     } else {
@@ -30,8 +45,7 @@ $(document).ready(function () {
         <div class="product-info">
           <h2>${details.name}</h2>
           <div class="price">
-            <span class="newPrice">$${details.recommended_price}</span> <del class="oldPrice">$${details.oldprice}</del>
-          </div>
+            <span class="newPrice">$${details.recommended_price}</span></div>
           <p>${details.description}</p>
           <button class="add-to-cart-btn" id="#add-to-cart-item"><i class="fas fa-shopping-cart"></i> &nbsp; ADD TO CART</button>
         </div>`;
@@ -89,7 +103,7 @@ $(document).ready(function () {
                         <div class="leftItem">
                           <div class="left-item-img-title">
                             <img
-                              src="${info.image}"
+                              src="${info.picture}"
                               alt=""
                               class="cartItemImage"
                             />
@@ -137,7 +151,7 @@ $(document).ready(function () {
   $(".shop").on("click", ".minus, .plus", function (event) {
     let product_id = $(this).closest(".cartItem").data("id");
     let type = $(this).hasClass("plus") ? "plus" : "minus";
-    setInterval(autoRefresh, 100);
+    setInterval(autoRefresh, 1000);
     changeQuantityCart(product_id, type);
   });
 
@@ -175,13 +189,16 @@ $(document).ready(function () {
     $(".newPrice span").text(`$${totalPrice.toFixed(2)}`);
   };
 
-  $.getJSON("/static/scripts/products.json", function (data) {
-    products = data;
-    if (localStorage.getItem("cart")) {
-      cart = JSON.parse(localStorage.getItem("cart"));
-      addToHtml();
+  $.getJSON(
+    "http://www.demistify.tech/alkebulan/api/products",
+    function (data) {
+      products = data;
+      if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+        addToHtml();
+      }
     }
-  });
+  );
 
   /* function to realod page when the user */
   /* add item to the cart or try to increas it */
