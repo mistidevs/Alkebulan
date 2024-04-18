@@ -1,6 +1,6 @@
 
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
+""" Starts a Flask Web Application """
 from flask import Flask, render_template, request, redirect, url_for
 from flask import jsonify
 from models import storage
@@ -187,11 +187,28 @@ def home():
     return render_template('home.html', products=products, cache_id=uuid.uuid4())
         
 
-@app.route("/details", methods=['GET', 'POST'])
-def details():
+@app.route("/details/<farmer_product_id>", methods=['GET', 'POST'])
+def details(farmer_product_id):
     """The home page"""
     cache_id = uuid.uuid4()
-    return render_template("details.html", cache_id=cache_id, details=details)
+    farmer_products = [farmer_product for farmer_product in storage.all(FarmerProduct).values() if farmer_product.id != farmer_product_id]
+    for farmer_product in farmer_products:
+        product = storage.get(Product, farmer_product.product_id)
+        farmer = storage.get(Farmer, farmer_product.farmer_id)
+        farmer_product.picture = product.picture
+        farmer_product.farmer_picture = farmer.picture
+        farmer_product.name = product.name
+    products = sorted(farmer_products, key=lambda k: k.name)
+    
+    details = storage.get(FarmerProduct, farmer_product_id)
+    product = storage.get(Product, details.product_id)
+    farmer = storage.get(Farmer, details.farmer_id)
+    details.picture = product.picture
+    details.farmer_picture = farmer.picture
+    details.name = product.name
+    details.description = product.description
+    
+    return render_template("details.html", cache_id=cache_id, details=details, products=products)
 
 @app.route("/products")
 def products():

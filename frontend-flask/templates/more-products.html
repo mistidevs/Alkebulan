@@ -5,16 +5,24 @@
   <h1>Products</h1>
   <div class="products">
     {% for product in products %}
-    <article class="item" data-id="{{product.id}}" data-name="{{product.name}}">
-      <img src=static{{ product.picture }} alt="" class="product-image" />
-      <h2>{{  product.name  }}</h2>
-      <div class="price">
-        <div class="newPrice"><span>${{  product.price  }}</span></div>
-      </div>
-      <button class="add-to-cart-btn" id="add-to-cart">
-        <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
-      </button>
-    </article>
+    <a href="{{ url_for('details', farmer_product_id=product.id) }}?{{  cache_id  }}">
+      <article
+        class="item"
+        data-id="{{ product.id }}"
+        data-name="{{ product.name }}"
+      >
+        <img src="{{ url_for('static', filename=product.picture) }}" alt="" class="product-image" />
+        <h2>{{ product.name }}</h2>
+        <div class="price">
+          <div class="newPrice">
+            <span>${{ product.price }}</span>
+          </div>
+        </div>
+        <button class="add-to-cart-btn" id="add-to-cart">
+          <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
+        </button>
+      </article>
+    </a>
     {% endfor %}
   </div>
 </section>
