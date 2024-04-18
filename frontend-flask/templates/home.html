@@ -10,7 +10,7 @@
       <img src="../static/images/banner.jpg" alt="" class="about-img-div" />
     </article>
     <article class="about-text">
-      <h1><span class="about-span">A</span>lkabulan</h1>
+      <h1><span class="about-span">A</span>lkebulan</h1>
       <div class="bottom-line"></div>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero est
@@ -35,7 +35,7 @@
       data-id="{{ product.id }}"
       data-name="{{ product.name }}"
     >
-      <img src="{{ product.picture }}" alt="" class="product-image" />
+      <img src=static{{ product.picture }} alt="" class="product-image" />
       <h2>{{ product.name }}</h2>
       <div class="price">
         <div class="newPrice">
@@ -59,7 +59,7 @@
   <div class="listProductsHome" id="add-product">
     {% for product in products[0:6] %}
     <article class="item" data-id="{{product.id}}" data-name="{{product.name}}">
-      <img src="${product.picture}" alt="" class="product-image" />
+      <img src=static{{ product.picture }} alt="" class="product-image" />
       <h2>{{product.name}}</h2>
       <div class="price">
         <div class="newPrice"><span>${{product.recommended_price}}</span></div>
