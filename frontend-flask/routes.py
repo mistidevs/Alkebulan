@@ -1,12 +1,13 @@
 
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
+""" Starts a Flask Web Application """
 from flask import Flask, render_template, request, redirect, url_for
 from flask import jsonify
 from models import storage
 from models.product import Product
 from models.farmer import Farmer
 from models.farmer_product import FarmerProduct
+from models.order import Order
 import uuid
 import json
 from flask_login import LoginManager, login_user, logout_user, current_user
@@ -19,6 +20,10 @@ app.config["SECRET_KEY"] = "djfwfwm5kl4nfpnwfknw5n5nslk"
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
+def redirect_back(default='/', **kwargs):
+    return redirect(request.referrer or url_for(default, **kwargs))
 
 @app.teardown_appcontext
 def close_db(error):
@@ -146,8 +151,8 @@ def logout():
     logout_user()
     return redirect(url_for("home"))
 
-@app.route("/order/<farmer_product_id>", methods=["GET", "POST"], strict_slashes=False)
-def making_an_order(farmer_product_id):
+@app.route("/order/<farmer_product_id>", methods=["POST"], strict_slashes=False)
+def order(farmer_product_id):
     """
     Ordering a product from a farmer
     """
@@ -156,20 +161,18 @@ def making_an_order(farmer_product_id):
     from models.order import Order
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
-    if request.method == "POST":
-        farmer_product = storage.get(FarmerProduct, farmer_product_id)
-        print(current_user.id)
-        order = Order(consumer_id=current_user.id,
-                      farmer_id=farmer_product.farmer_id,
-                      product_id=farmer_product.product_id,
-                      unit_price=farmer_product.price,
-                      quantity=request.form.get("quantity"),
-                      total_price=int(farmer_product.price) * int(request.form.get("quantity")))
-        storage.new(order)
-        storage.save()
-        storage.close()
-        return render_template("home.html")
-    return render_template("order.html")
+    farmer_product = storage.get(FarmerProduct, farmer_product_id)
+    print(current_user.id)
+    order = Order(consumer_id=current_user.id,
+                    farmer_id=farmer_product.farmer_id,
+                    product_id=farmer_product.product_id,
+                    unit_price=farmer_product.price,
+                    quantity=1,
+                    total_price=int(farmer_product.price) * 1)
+    storage.new(order)
+    storage.save()
+    storage.close()
+    return redirect_back()
 
 @app.route("/home")
 @app.route("/", methods=["GET"])
@@ -187,11 +190,28 @@ def home():
     return render_template('home.html', products=products, cache_id=uuid.uuid4())
         
 
-@app.route("/details", methods=['GET', 'POST'])
-def details():
+@app.route("/details/<farmer_product_id>", methods=['GET', 'POST'])
+def details(farmer_product_id):
     """The home page"""
     cache_id = uuid.uuid4()
-    return render_template("details.html", cache_id=cache_id, details=details)
+    farmer_products = [farmer_product for farmer_product in storage.all(FarmerProduct).values() if farmer_product.id != farmer_product_id]
+    for farmer_product in farmer_products:
+        product = storage.get(Product, farmer_product.product_id)
+        farmer = storage.get(Farmer, farmer_product.farmer_id)
+        farmer_product.picture = product.picture
+        farmer_product.farmer_picture = farmer.picture
+        farmer_product.name = product.name
+    products = sorted(farmer_products, key=lambda k: k.name)
+    
+    details = storage.get(FarmerProduct, farmer_product_id)
+    product = storage.get(Product, details.product_id)
+    farmer = storage.get(Farmer, details.farmer_id)
+    details.picture = product.picture
+    details.farmer_picture = farmer.picture
+    details.name = product.name
+    details.description = product.description
+    
+    return render_template("details.html", cache_id=cache_id, details=details, products=products)
 
 @app.route("/products")
 def products():
@@ -211,7 +231,14 @@ def products():
 def shop():
     """The home page"""
     cache_id = uuid.uuid4()
-    return render_template("shop.html", cache_id=cache_id)
+    orders = [order for order in storage.all(Order).values() if order.consumer_id == current_user.id and order.in_cart == True]
+    for order in orders:
+        product = storage.get(Product, order.product_id)
+        farmer = storage.get(Farmer, order.farmer_id)
+        order.picture = product.picture
+        order.farmer_picture = farmer.picture
+        order.name = product.name
+    return render_template("shop.html", cache_id=cache_id, orders=orders)
 
 @app.route("/contact")
 def contact():

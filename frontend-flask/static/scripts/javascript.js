@@ -189,3 +189,30 @@ $(document).ready(function () {
     location.reload();
   }
 });
+
+document.querySelectorAll('.add-to-cart-form').forEach(form => {
+  form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      let actionURL = event.target.action;
+      let formData = new FormData(event.target);
+      fetch(actionURL, {
+          method: 'POST',
+          body: formData
+      }).then(response => response.json())
+      .then(data => {
+          // Handle the JSON response data
+          console.log(data); // Log the response data for debugging
+          // Example: Update the UI based on the response
+          if (data && data.message) {
+              alert(data.message); // Display a success message
+              // Optionally, update the UI to reflect the order status
+          } else {
+              alert("Error: Failed to place order"); // Display an error message
+          }
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+          alert("Error: Failed to place order"); // Display an error message
+      });
+  });
+});
