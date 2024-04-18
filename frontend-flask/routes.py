@@ -5,6 +5,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask import jsonify
 from models import storage
 from models.product import Product
+from models.farmer import Farmer
+from models.farmer_product import FarmerProduct
 import uuid
 import json
 from flask_login import LoginManager, login_user, logout_user, current_user
@@ -144,13 +146,43 @@ def logout():
     logout_user()
     return redirect(url_for("home"))
 
+@app.route("/order/<farmer_product_id>", methods=["GET", "POST"], strict_slashes=False)
+def making_an_order(farmer_product_id):
+    """
+    Ordering a product from a farmer
+    """
+    from models import storage
+    from models.farmer_product import FarmerProduct
+    from models.order import Order
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    if request.method == "POST":
+        farmer_product = storage.get(FarmerProduct, farmer_product_id)
+        print(current_user.id)
+        order = Order(consumer_id=current_user.id,
+                      farmer_id=farmer_product.farmer_id,
+                      product_id=farmer_product.product_id,
+                      unit_price=farmer_product.price,
+                      quantity=request.form.get("quantity"),
+                      total_price=int(farmer_product.price) * int(request.form.get("quantity")))
+        storage.new(order)
+        storage.save()
+        storage.close()
+        return render_template("home.html")
+    return render_template("order.html")
 
 @app.route("/home")
 @app.route("/", methods=["GET"])
 def home():
     """The home page"""
-    products = storage.all(Product).values()
-    products = sorted(products, key=lambda k: k.name)
+    farmer_products = storage.all(FarmerProduct).values()
+    for farmer_product in farmer_products:
+        product = storage.get(Product, farmer_product.product_id)
+        farmer = storage.get(Farmer, farmer_product.farmer_id)
+        farmer_product.picture = product.picture
+        farmer_product.farmer_picture = farmer.picture
+        farmer_product.name = product.name
+    products = sorted(farmer_products, key=lambda k: k.name)
 
     return render_template('home.html', products=products, cache_id=uuid.uuid4())
         
@@ -165,8 +197,14 @@ def details():
 def products():
     """The home page"""
     cache_id = uuid.uuid4()
-    products = storage.all(Product).values()
-    products = sorted(products, key=lambda k: k.created_at)
+    farmer_products = storage.all(FarmerProduct).values()
+    for farmer_product in farmer_products:
+        product = storage.get(Product, farmer_product.product_id)
+        farmer = storage.get(Farmer, farmer_product.farmer_id)
+        farmer_product.picture = product.picture
+        farmer_product.farmer_picture = farmer.picture
+        farmer_product.name = product.name
+    products = sorted(farmer_products, key=lambda k: k.created_at)
     return render_template("more-products.html", cache_id=cache_id, products=products,)
 
 @app.route("/shop")
