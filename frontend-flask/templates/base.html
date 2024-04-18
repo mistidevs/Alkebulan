@@ -53,12 +53,15 @@
           {% endif %}
           {% if current_user.is_authenticated %}
           <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          {% else%}
+          <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+          <li><a href="{{ url_for('login') }}">Log In</a></li>
           {% endif %}
           <!--<li><a href="{{ url_for('contact') }}">Contact Us</a></li>-->
         </ul>
         <div class="main-user">
           <a href="{{ url_for('shop') }}?{{ cache_id }}" class="shop-icon"><i class="fas fa-shopping-cart shop-icon"></i> <span></span></a>
-          <i class="fa-solid fa-user user"></i>
+          <!--<i class="fa-solid fa-user user"></i>-->
         </div>
       </nav>
       {% if request.path == url_for('home') %}
