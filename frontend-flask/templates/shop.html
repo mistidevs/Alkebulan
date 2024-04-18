@@ -3,7 +3,34 @@
 <!-- START SHOP SECTION -->
 <section class="container">
   <h2 class="cart-title">Cart</h2>
-  <div class="shop"></div>
+  <div class="shop">
+    {% for order in orders %}
+    <article class="cartItem" data-id="{{  order.id  }}">
+      <div class="leftItem">
+        <div class="left-item-img-title">
+          <img
+            src=static{{  order.picture  }}
+            alt=""
+            class="cartItemImage"
+          />
+          <p>{{  order.name  }}</p>
+        </div>
+        
+      </div>
+
+      <div class="rightItem">
+        <div class="price">
+          <div class="newPrice"><span>${{  order.unit_price  }}</span></div>
+        </div>
+        <div class="quantity">
+          <span class="minus"><</span>
+          <span>{{  order.quantity  }}</span>
+          <span class="plus">></span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
 </section>
 <!-- END SHOP SECTION -->
 
