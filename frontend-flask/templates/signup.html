@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
+    <link rel="stylesheet" href="../static/style/common.css">
     <link rel="stylesheet" href="../static/style/signup.css">
 </head>
 <body>
     <div class="wrapper">
-        <h1>User signup</h1>
-        <form action="registration_process.php" method="POST">
+        <h1>Sign Up</h1>
+        <form action="#" method="POST">
             <div class="input-box">
-                <input type="text" placeholder="Full Name" name="fullname" required>
+                <input type="text" placeholder="Full Name" name="full_name" required>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Username" name="username" required>
+                <input type="text" placeholder="Username" name="user_name" required>
             </div>
             <div class="input-box">
                 <input type="email" placeholder="Email" name="email" required>
             </div>
             <div class="input-box">
-                <input type="tel" placeholder="Contact Number" name="contact" required>
+                <input type="tel" placeholder="Phone Number" name="phone_number" required>
             </div>
             <div class="input-box">
                 <input type="text" placeholder="Location" name="location" required>
@@ -28,8 +29,8 @@
             <div class="input-box">
                 <select name="role" required>
                     <option value="" disabled selected>Select Role</option>
-                    <option value="customer">Customer</option>
-                    <option value="farmer">Farmer</option>
+                    <option class="drop-down" value="consumer">Consumer</option>
+                    <!--<option class="drop-down" value="farmer">Farmer</option>-->
                 </select>
             </div>
             <div class="input-box">
@@ -41,16 +42,8 @@
             <input type="submit" class="btn" value="Register">
         </form>
         <div class="register-link">
-            <p>Already have an account? <a href="login.html">logIn</a></p>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Log In</a></p>
         </div>
     </div>
-
-    <script>
-        document.getElementById("registrationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            window.location.href = "index.html";
-        });
-    </script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
+"""
+Starts a Flask Web Application
+"""
 from os import environ
 from flask import Flask, render_template, request, url_for, redirect
 from flask_login import LoginManager, login_user, logout_user, current_user
@@ -16,12 +18,16 @@ login_manager.init_app(app)
 @app.teardown_appcontext
 def close_db(error):
     from models import storage
-    """ Remove the current SQLAlchemy Session """
+    """
+    Remove the current SQLAlchemy Session
+    """
     storage.close()
 
 @login_manager.user_loader
 def load_user(user_id):
-    """Loads a user from memory"""
+    """
+    Loads a user from memory
+    """
     from models.consumer import Consumer
     from models import storage
     consumers = storage.all(Consumer)
@@ -33,7 +39,9 @@ def load_user(user_id):
 def register():
     from models.consumer import Consumer
     from models import storage
-    """Creates a new user from the frontend interface"""
+    """
+    Creates a new user from the frontend interface
+    """
     required_fields = ["user_name", "password", "full_name", "email", "phone_number"]
     if request.method == "POST":
         missing_fields = []
@@ -60,7 +68,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"], strict_slashes=False)
 def login():
-    """Offers a user an opportunity to log in"""
+    """
+    Offers a user an opportunity to log in
+    """
     from models.consumer import Consumer
     from models import storage
     from models.valid_login import ValidLogin
@@ -118,13 +128,17 @@ def login():
         
 @app.route("/logout")
 def logout():
-    """Logs a user out"""
+    """
+    Logs a user out
+    """
     logout_user()
     return redirect(url_for("home"))
 
 @app.route("/order/<farmer_product_id>", methods=["GET", "POST"], strict_slashes=False)
 def making_an_order(farmer_product_id):
-    """Ordering a product from a farmer"""
+    """
+    Ordering a product from a farmer
+    """
     from models import storage
     from models.farmer_product import FarmerProduct
     from models.order import Order
@@ -147,10 +161,14 @@ def making_an_order(farmer_product_id):
 
 @app.route("/")
 def home():
-    """The home page"""
+    """
+    The home page
+    """
     return render_template("home.html")
         
 
 if __name__ == "__main__":
-    """ Main Function """
+    """
+    Main Function
+    """
     app.run(host='0.0.0.0', port=5000, debug=True)

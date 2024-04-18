@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for Orders """
+"""
+Methods that handle all default RESTFul API actions for Orders
+"""
 from models.order import Order
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
-from flasgger.utils import swag_from
 
 
 @app_views.route('/orders', methods=['GET'], strict_slashes=False)
@@ -22,7 +23,9 @@ def get_orders():
 
 @app_views.route('/orders/<order_id>', methods=['GET'], strict_slashes=False)
 def get_order(order_id):
-    """ Retrieves a order """
+    """
+    Retrieves an Order
+    """
     order = storage.get(Order, order_id)
     if not order:
         abort(404)
@@ -32,12 +35,10 @@ def get_order(order_id):
 
 @app_views.route('/orders/<order_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/order/delete_order.yml', methods=['DELETE'])
 def delete_order(order_id):
     """
-    Deletes a order Object
+    Deletes an Order
     """
-
     order = storage.get(Order, order_id)
 
     if not order:
@@ -50,10 +51,9 @@ def delete_order(order_id):
 
 
 @app_views.route('/orders', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/order/post_order.yml', methods=['POST'])
 def post_order():
     """
-    Creates a order
+    Creates an Order
     """
     if not request.get_json():
         abort(400, description="Not a JSON")

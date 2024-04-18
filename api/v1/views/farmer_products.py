@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for FarmerProducts """
+"""
+Methods that handle all default RESTFul API actions for FarmerProducts
+"""
 from models.farmer_product import FarmerProduct
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
-from flasgger.utils import swag_from
 
 
 @app_views.route('/farmer_products', methods=['GET'], strict_slashes=False)
@@ -22,7 +23,9 @@ def get_farmer_products():
 
 @app_views.route('/farmer_products/<farmer_product_id>', methods=['GET'], strict_slashes=False)
 def get_farmer_product(farmer_product_id):
-    """ Retrieves a farmer_product """
+    """
+    Retrieves a FarmerProduct 
+    """
     farmer_product = storage.get(FarmerProduct, farmer_product_id)
     if not farmer_product:
         abort(404)
@@ -32,12 +35,10 @@ def get_farmer_product(farmer_product_id):
 
 @app_views.route('/farmer_products/<farmer_product_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/farmer_product/delete_farmer_product.yml', methods=['DELETE'])
 def delete_farmer_product(farmer_product_id):
     """
-    Deletes a farmer_product Object
+    Deletes a FarmerProduct Object
     """
-
     farmer_product = storage.get(FarmerProduct, farmer_product_id)
 
     if not farmer_product:
@@ -50,10 +51,9 @@ def delete_farmer_product(farmer_product_id):
 
 
 @app_views.route('/farmer_products', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/farmer_product/post_farmer_product.yml', methods=['POST'])
 def post_farmer_product():
     """
-    Creates a farmer_product
+    Creates a FarmerProduct
     """
     if not request.get_json():
         abort(400, description="Not a JSON")

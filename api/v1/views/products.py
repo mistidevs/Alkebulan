@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for Products """
+"""
+Methods that handle all default RESTFul API actions for Products
+"""
 from models.product import Product
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
-from flasgger.utils import swag_from
 
 
 @app_views.route('/products', methods=['GET'], strict_slashes=False)
@@ -22,7 +23,9 @@ def get_products():
 
 @app_views.route('/products/<product_id>', methods=['GET'], strict_slashes=False)
 def get_product(product_id):
-    """ Retrieves a product """
+    """
+    Retrieves a Product
+    """
     product = storage.get(Product, product_id)
     if not product:
         abort(404)
@@ -32,12 +35,10 @@ def get_product(product_id):
 
 @app_views.route('/products/<product_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/product/delete_product.yml', methods=['DELETE'])
 def delete_product(product_id):
     """
-    Deletes a product Object
+    Deletes a Product
     """
-
     product = storage.get(Product, product_id)
 
     if not product:
@@ -50,10 +51,9 @@ def delete_product(product_id):
 
 
 @app_views.route('/products', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/product/post_product.yml', methods=['POST'])
 def post_product():
     """
-    Creates a product
+    Creates a Product
     """
     if not request.get_json():
         abort(400, description="Not a JSON")
@@ -78,7 +78,7 @@ def post_product():
 @app_views.route('/products/<product_id>', methods=['PUT'], strict_slashes=False)
 def put_product(product_id):
     """
-    Updates a product
+    Updates a Product
     """
     product = storage.get(Product, product_id)
 

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This is the Products class"""
+"""
+This is the Products class
+"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
@@ -30,5 +32,7 @@ class Product(BaseModel, Base):
       description = ""
 
   def __init__(self, *args, **kwargs):
-      """initializes an administrator"""
+      """
+      Initializes an administrator
+      """
       super().__init__(*args, **kwargs)
