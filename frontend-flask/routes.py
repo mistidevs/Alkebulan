@@ -14,7 +14,8 @@ from flask_login import LoginManager, login_user, logout_user, current_user
 from hashlib import md5
 
 
-app = Flask(__name__,  static_folder='static')
+app = Flask(__name__, static_folder='static')
+
 app.url_map.strict_slashes = False
 app.config["SECRET_KEY"] = "djfwfwm5kl4nfpnwfknw5n5nslk"
 
