@@ -34,8 +34,7 @@
       <article
         class="item"
         data-id="{{ product.id }}"
-        data-name="{{ product.name }}"
-      >
+        data-name="{{ product.name }}">
         <img src="{{ url_for('static', filename=product.picture) }}" alt="" class="product-image" />
         <h2>{{ product.name }}</h2>
         <div class="price">
@@ -43,9 +42,13 @@
             <span>${{ product.price }}</span>
           </div>
         </div>
-        <button class="add-to-cart-btn" id="add-to-cart">
-          <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
-        </button>
+        <form class="add-to-cart-form" action="{{ url_for('order', farmer_product_id=product.id) }}" method="post">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="add-to-cart-btn">
+              <i class="fas fa-shopping-cart"></i>  ADD TO CART
+          </button>
+      </form>
+      
       </article>
     </a>
     {% endfor %}
@@ -73,9 +76,12 @@
             <span>${{ product.price }}</span>
           </div>
         </div>
-        <button class="add-to-cart-btn" id="add-to-cart">
-          <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
-        </button>
+        <form class="add-to-cart-form" action="{{ url_for('order', farmer_product_id=product.id) }}" method="post">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="add-to-cart-btn">
+              <i class="fas fa-shopping-cart"></i>  ADD TO CART
+          </button>
+      </form>
       </article>
     </a>
     {% endfor %}
@@ -85,5 +91,6 @@
   >
 </section>
 <!-- END PRODUCTS SECTION -->
+
 
 {% endblock %}

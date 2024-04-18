@@ -14,7 +14,12 @@
         <p>
           {{  details.description  }}
         </p>
-        <button class="add-to-cart-btn">ADD TO CART</button>
+        <form class="add-to-cart-form" action="{{ url_for('order', farmer_product_id=details.id) }}" method="post">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="add-to-cart-btn">
+              <i class="fas fa-shopping-cart"></i>  ADD TO CART
+          </button>
+      </form>
       </div>
     </div>
   </div>
@@ -35,9 +40,12 @@
               <span>${{ product.price }}</span>
             </div>
           </div>
-          <button class="add-to-cart-btn" id="add-to-cart">
-            <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
-          </button>
+          <form class="add-to-cart-form" action="{{ url_for('order', farmer_product_id=product.id) }}" method="post">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="add-to-cart-btn">
+                <i class="fas fa-shopping-cart"></i>  ADD TO CART
+            </button>
+        </form>
         </article>
       </a>
     {% endfor %}
