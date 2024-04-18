@@ -17,26 +17,6 @@ $(document).ready(function () {
         setInterval(autoRefresh, 100);
         addToCart(product_id);
       }
-    } else {
-      let positionProduct = products.findIndex(
-        (value) => value.id == product_id
-      );
-      item = products[positionProduct];
-      let details = item;
-      let productHTML = `<div class="product-img-list">
-          <img src="${details.picture}" alt="Product Image"/>
-        </div>
-
-        <div class="product-info">
-          <h2>${details.name}</h2>
-          <div class="price">
-            <span class="newPrice">$${details.recommended_price}</span> <del class="oldPrice">$${details.oldprice}</del>
-          </div>
-          <p>${details.description}</p>
-          <button class="add-to-cart-btn" id="#add-to-cart-item"><i class="fas fa-shopping-cart"></i> &nbsp; ADD TO CART</button>
-        </div>`;
-      $(".selected-product").empty().append(productHTML);
-      localStorage.setItem("details", JSON.stringify(details));
     }
   });
   $(".selected-product").on("click", function (event) {
