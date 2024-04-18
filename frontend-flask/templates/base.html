@@ -51,6 +51,9 @@
           {% else%}
             <li><a href="{{ url_for('home') }}">About Us</a></li>
           {% endif %}
+          {% if current_user.is_authenticated %}
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          {% endif %}
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
         </ul>
         <div class="main-user">
