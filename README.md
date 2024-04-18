@@ -139,6 +139,8 @@ Furthermore, the schema is as below:
 
 ### Application Programming Interface
 #### Methods
+The methods below are when you are testing the API in a local environment. When using the API link detailed above the /v1/ is not needed.
+
 ##### GET
 /api/v1/consumers  
 /api/v1/consumers/<consumer_id>  
