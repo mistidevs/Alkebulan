@@ -21,7 +21,9 @@ He worked as the backend engineer for the project. He focused on building the da
 
 
 ## Live Demo
-**The live demo detailing the Minimum Viable Product is currently experiencing technical difficulties.**
+**The live demo detailing the Minimum Viable Product is right here:
+
+[Alkebulan](http://web-02.demistify.tech:5000/)
 
 To access the API use this link:
 
