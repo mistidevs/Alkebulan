@@ -25,12 +25,16 @@ classes = {"Admin": Admin, "Consumer": Consumer,
 
 
 class DBStorage:
-    """interaacts with the MySQL database"""
+    """
+    Interaacts with the MySQL database
+    """
     __engine = None
     __session = None
 
     def __init__(self):
-        """Instantiate a DBStorage object"""
+        """
+        Instantiate a DBStorage object
+        """
         ALKEBULAN_MYSQL_USER = getenv('ALKEBULAN_MYSQL_USER')
         ALKEBULAN_MYSQL_PWD = getenv('ALKEBULAN_MYSQL_PWD')
         ALKEBULAN_MYSQL_HOST = getenv('ALKEBULAN_MYSQL_HOST')
@@ -45,7 +49,9 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """query on the current database session"""
+        """
+        Yield all objects or objects of a specific class
+        """
         new_dict = {}
         for clss in classes:
             if cls is None or cls is classes[clss] or cls is clss:
@@ -56,27 +62,38 @@ class DBStorage:
         return (new_dict)
 
     def new(self, obj):
-        """add the object to the current database session"""
+        """
+        Add the object to the current database session
+        """
         self.__session.add(obj)
 
     def save(self):
-        """commit all changes of the current database session"""
+        """
+        Commit all changes of the current database session
+        """
         self.__session.commit()
 
     def delete(self, obj=None):
-        """delete from the current database session obj if not None"""
+        """
+        Delete from the current database session obj if not None
+        """
         if obj is not None:
             self.__session.delete(obj)
 
     def reload(self):
-        """reloads data from the database"""
+        """
+        Reloads data from the database
+        """
         Base.metadata.create_all(self.__engine)
         sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(sess_factory)
         self.__session = Session
 
     def close(self):
-        """call remove() method on the private session attribute"""
+        """
+        Call remove() method on the private session attribute
+        restarting the database session with any new changes
+        """
         self.__session.remove()
 
     def get(self, cls, id):
@@ -96,7 +113,7 @@ class DBStorage:
 
     def count(self, cls=None):
         """
-        count the number of objects in storage
+        Count the number of objects in storage
         """
         all_class = classes.values()
 

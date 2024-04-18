@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for ValidLogins """
+"""
+Methods that handle all default RESTFul API actions for ValidLogins
+"""
 from models.valid_login import ValidLogin
 from models import storage
 from api.v1.views import app_views
@@ -22,7 +24,9 @@ def get_valid_logins():
 
 @app_views.route('/valid_logins/<valid_login_id>', methods=['GET'], strict_slashes=False)
 def get_valid_login(valid_login_id):
-    """ Retrieves a valid_login """
+    """
+    Retrieves a ValidLogin
+    """
     valid_login = storage.get(ValidLogin, valid_login_id)
     if not valid_login:
         abort(404)

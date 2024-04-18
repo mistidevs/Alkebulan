@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Index """
+"""
+Getting Statistics and Status of the API
+"""
 
 from models import storage
 from models.admin import Admin
@@ -14,15 +16,27 @@ from api.v1.views import app_views
 from flask import jsonify
 
 
+@app_views.route('/', methods=['GET'], strict_slashes=False)
+def api():
+    """
+    Status of API
+    """
+    return jsonify({"Alkebulan API": "Ready and Primed"})
+
+
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def status():
-    """ Status of API """
+    """
+    Status of API
+    """
     return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def number_objects():
-    """ Retrieves the number of each objects by type """
+    """
+    Retrieves the number of each catoegory of objects by type 
+    """
     classes = [Admin, Consumer, Farmer, FarmerProduct, Order, Product, ValidLogin, InvalidLogin]
     names = ["admins", "consumers", "farmers", "farmer_products", "orders", "products", "valid_logins", "invalid_logins"]
 
