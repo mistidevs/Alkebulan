@@ -1,21 +1,29 @@
-{% extends 'base.html' %} {% block body %}
-<div class="wrapper">
-  <form action="">
-    <h1>Login</h1>
-    <div class="input-box">
-      <input type="text" placeholder="E-mail" required />
-    </div>
-    <div class="input-box">
-      <input type="password" placeholder="password" required />
-    </div>
-    <div class="remember-forgot">
-      <labal><input type="checkbox" />Remember Me</labal>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="../static/style/common.css">
+    <link rel="stylesheet" href="../static/style/signup.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form action="#" method="post">
+      <h1>Login</h1>
+      <div class="input-box">
+        <input type="text" placeholder="Username" name="user_name" required />
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" name="password" required />
+      </div>
+      <div class="remember-forgot">
 
-      <a href="#">forgot password</a>
-    </div>
-    <button class="btn" type="submit">Login</button>
-    <div class="register-link"></div>
-    <p>Don't have an account? <a href="register.html">Register</a></p>
-  </form>
-</div>
-{% endblock %}
+      </div>
+      <button class="btn" type="submit">Login</button>
+      <div class="register-link"></div>
+      <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+    </form>
+  </div>
+</body>
+</html>
