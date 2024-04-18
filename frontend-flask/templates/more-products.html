@@ -6,10 +6,10 @@
   <div class="products">
     {% for product in products %}
     <article class="item" data-id="{{product.id}}" data-name="{{product.name}}">
-      <img src="{{product.picture}}" alt="" class="product-image" />
-      <h2>${product.name}</h2>
+      <img src=static{{ product.picture }} alt="" class="product-image" />
+      <h2>{{  product.name  }}</h2>
       <div class="price">
-        <div class="newPrice"><span>${{product.recommended_price}}</span></div>
+        <div class="newPrice"><span>${{  product.price  }}</span></div>
       </div>
       <button class="add-to-cart-btn" id="add-to-cart">
         <i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART
