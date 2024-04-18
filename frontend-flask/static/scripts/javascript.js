@@ -24,23 +24,25 @@ $(document).ready(function () {
       item = products[positionProduct];
       let details = item;
       let productHTML = `<div class="product-img-list">
-          <img src="${details.images[0]}" alt="Product Image"/>
+          <img src="${details.picture}" alt="Product Image"/>
         </div>
 
         <div class="product-info">
           <h2>${details.name}</h2>
           <div class="price">
-            <span class="newPrice">$${details.newprice}</span> <del class="oldPrice">$${details.oldprice}</del>
+            <span class="newPrice">$${details.recommended_price}</span> <del class="oldPrice">$${details.oldprice}</del>
           </div>
           <p>${details.description}</p>
           <button class="add-to-cart-btn" id="#add-to-cart-item"><i class="fas fa-shopping-cart"></i> &nbsp; ADD TO CART</button>
         </div>`;
       $(".selected-product").empty().append(productHTML);
-      $(document).on("click", function (event) {
-        e.preventDefault();
-        addToCart(product_id);
-      });
+      localStorage.setItem("details", JSON.stringify(details));
     }
+  });
+  $(".selected-product").on("click", function (event) {
+    e.preventDefault();
+    let product_id = $(this).attr("data-id");
+    addToCart(product_id);
   });
   /* add item to cart */
   function addToCart(product_id) {
@@ -81,7 +83,7 @@ $(document).ready(function () {
           (value) => value.id == item.product_id
         );
         let info = products[positionProduct];
-        let itemPrice = totalQuantity * info.newprice;
+        let itemPrice = totalQuantity * info.recommended_price;
         totalPrice += itemPrice;
         let productHTML = `<article class="cartItem" data-id="${item.product_id}">
                         <div class="leftItem">
@@ -98,7 +100,7 @@ $(document).ready(function () {
 
                         <div class="rightItem">
                           <div class="price">
-                            <div class="newPrice"><span>$${info.newprice}</span></div>
+                            <div class="newPrice"><span>$${info.recommended_price}</span></div>
                           </div>
                           <div class="quantity">
                             <span class="minus"><</span>
@@ -168,7 +170,7 @@ $(document).ready(function () {
         (value) => value.id == item.product_id
       );
       let info = products[positionProduct];
-      totalPrice += item.quantity * info.newprice;
+      totalPrice += item.quantity * info.recommended_price;
     });
     $(".newPrice span").text(`$${totalPrice.toFixed(2)}`);
   };
@@ -186,112 +188,4 @@ $(document).ready(function () {
   function autoRefresh() {
     location.reload();
   }
-});
-/* ----------------------------------------------------------------------- */
-/* load data to products */
-
-/* using ajax to import data */
-
-/* import data for products-list at home page*/
-$.ajax({
-  url: "/static/scripts/products.json",
-  type: "GET",
-  datatype: "json",
-  success: function (data) {
-    $.each(data.slice(0, 6), function (index, product) {
-      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
-                                <img
-                                src="${product.image}"
-                                alt=""
-                                class="product-image"
-                                />
-                              <h2>${product.name}</h2>
-                              <div class="price">
-                                  <div class="newPrice"><span>$${product.newprice}</span></div>
-                                  <div class="oldPrice"><del>$${product.oldprice}</del></div>
-                              </div>
-                              <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART</button>
-                            </article>`;
-
-      $(".listProductsHome").append(productHTML);
-    });
-  },
-});
-
-/* import data for best-selling-products at home page */
-$.ajax({
-  url: "/static/scripts/products.json",
-  type: "GET",
-  datatype: "json",
-  success: function (data) {
-    $.each(data.slice(10, 13), function (index, product) {
-      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
-                            <img
-                              src="${product.image}"
-                              alt=""
-                              class="product-image"
-                            />
-                            <h2>${product.name}</h2>
-                            <div class="price">
-                              <div class="newPrice"><span>$${product.newprice}</span></div>
-                              <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; ADD TO CART</button>
-                            </div>
-                          </article>`;
-
-      $(".bestSellingProducts").append(productHTML);
-    });
-  },
-});
-
-/* import data for products at products pages */
-$.ajax({
-  url: "/static/scripts/products.json",
-  type: "GET",
-  datatype: "json",
-  success: function (data) {
-    let num = 0;
-    $.each(data, function (index, product) {
-      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
-                            <img
-                            src="${product.image}"
-                            alt=""
-                            class="product-image"
-                            />
-                            <h2>${product.name}</h2>
-                            <div class="price">
-                                <div class="newPrice"><span>$${product.newprice}</span></div>
-                                <div class="oldPrice"><del>$${product.oldprice}</del></div>
-                            </div>
-                        <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART</button>
-                      </article>`;
-      num += 1;
-      if (num === 9) {
-        let productDot = `<h1>...</h1>`;
-        $(".products").append(productDot);
-      } else {
-        $(".products").append(productHTML);
-      }
-    });
-  },
-});
-
-/* import data for related-product at details page */
-$.ajax({
-  url: "/static/scripts/products.json",
-  type: "GET",
-  datatype: "json",
-  success: function (data) {
-    $.each(data.slice(0, 3), function (index, product) {
-      let productHTML = `<article class="item" data-id="${product.id}" data-name="${product.name}">
-                          <img src="${product.image}" alt="" class="product-image" />
-                          <h2>${product.name}</h2>
-                          <div class="price">
-                              <div class="newPrice"><span>$${product.newprice}</span></div>
-                              <div class="oldPrice"><del>$${product.oldprice}</del></div>
-                          </div>
-                      <button class="add-to-cart-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp; ADD TO CART</button>
-                    </article>`;
-      $(".related-products").append(productHTML);
-    });
-  },
 });
