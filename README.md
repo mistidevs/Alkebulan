@@ -1,6 +1,8 @@
 # Alkebulan
 Bringing the Farm to your Doorstep
 
+![Alkebulan](./alkebulan.png)
+
 ## Authors
 
 ### Misati Nyambane
@@ -19,11 +21,9 @@ He worked as the backend engineer for the project. He focused on building the da
 
 
 ## Live Demo
-The live demo detailing the Minimum Viable Product we worked on can be found here:
+**The live demo detailing the Minimum Viable Product is currently experiencing technical difficulties.**
 
-[Alkebulan](http://www.demistify.tech/alkebulan)
-
-To access the API only use this link:
+To access the API use this link:
 
 [Alkebulan API](http://www.demistify.tech/alkebulan/api/)
 
@@ -180,7 +180,16 @@ Furthermore, the schema is as below:
 ## Frontend
 
 ### Flask Web Framework
+The web framework implements multiple routes that encompass:
 
+- Signing up as a consumer
+- Logging in as a consumer
+- Adding elements to a cart
+- Viewing the full product catalogue
+- Viewing a snippet of the products
+- Logging out
+
+As a Minimum Viable Product the integration is yet to have a user page, farmer pages and order tracking. These can be implemented in another iteration.
 ## Commit Framework
 ### Branch Commits
 code (name of file) : (change made)  
@@ -194,7 +203,32 @@ feature (directories affected) : (feature added)
 fix (directories affected) : (bug resolved)
 
 ## Contributing
+As this is a portfolio project with a minimum viable product implementation feel free to fork the code and play around with it. Think of this project as a proof of concept. It shows how to build a full stack e-commerce website.
+
+The frontend has much to be desired without a doubt. Nonetheless, due to a solid and stable backend with extendable but not modifiable classes in the right hands this project can easily be really amazing. Realise that such a project requires to be in a localised area. The consumer goes to the farmer to get the goods or the farmer makes a delivery. This means that the consumer and farmer require to be in roughly the same locality.
 
 ## Related Projects
+At the moment we know of one project that seeks to do the exact same thing as this project. This is GrownBy which serves some states in America with the exact same farmer to consumer offer.
 
 ## Licensing
+MIT License with Attribution
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

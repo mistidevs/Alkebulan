@@ -54,7 +54,7 @@
           {% if current_user.is_authenticated %}
           <li><a href="{{ url_for('logout') }}">Log Out</a></li>
           {% endif %}
-          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <!--<li><a href="{{ url_for('contact') }}">Contact Us</a></li>-->
         </ul>
         <div class="main-user">
           <a href="{{ url_for('shop') }}?{{ cache_id }}" class="shop-icon"><i class="fas fa-shopping-cart shop-icon"></i> <span></span></a>
